@@ -25,3 +25,43 @@
 #         dispatcher.utter_message(text="Hello World!")
 #
 #         return []
+
+from typing import Any, Coroutine, Dict, List, Text
+from rasa_sdk import Action
+from rasa_sdk.executor import CollectingDispatcher
+from rasa_sdk.interfaces import Tracker
+from rasa_sdk.types import DomainDict
+
+
+ALLOWED_TIPO_DOCUMENTO = (
+    'atestado', 'matricula',
+)
+
+class ActionDarOi(Action):
+    def name(self) -> Text:
+        return 'action_dar_oi'
+    
+    async def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(response='utter_saudacao', nome='Diego')
+
+        return []
+
+
+class AskForTipoDocumenoAction(Action):
+    def name(self) -> Text:
+        return 'action_ask_tipo_documento'
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(response='utter_ask_tipo_documento', buttons=[{'title': tipo, 'payload': tipo } for tipo in ALLOWED_TIPO_DOCUMENTO])
+
+        return []
+
+
+class SubmitFormTipoDocumento(Action):
+    def name(self) -> Text:
+        return 'action_submit_form_tipo_documento'
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        dispatcher.utter_message(text=f'form enviado {tracker.get_slot("tipo_documento")}')
+
+        return []

@@ -1,91 +1,182 @@
 version: "3.1"
 
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+  - intent: saudacao
+    examples: |
+      - oi
+      - olá
+      - hey
+      - tudo bem?
+      - bom dia
+      - boa tarde
+      - boa noite
+      - e aí?
+      - vamos lá
+      - blz
+      - opa
+      - beleza
+      - salve
+      - oi, tudo joia?
 
-- intent: goodbye
-  examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+  - intent: despedida
+    examples: |
+      - tchau
+      - até logo
+      - falô
+      - fui
+      - já vou
+      - boa noite
+      - até mais
+      - até qualquer dia
+      - tchau, tchau
+      - vejo você depois
+      - até a próxima
+      - se cuida
+      - abraços
+      - Fui
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+  - intent: afirmacao
+    examples: |
+      - sim
+      - claro
+      - com certeza
+      - pode crer
+      - tá certo
+      - beleza
+      - ok
+      - legal
+      - irado
+      - topo
+      - vamos lá
+      - manda brasa
+      - pode deixar
+      - blz
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+  - intent: negacao
+    examples: |
+      - não
+      - nem pensar
+      - de jeito nenhum
+      - nem a pau
+      - acho que não
+      - não curto isso
+      - deixa pra lá
+      - dispensa
+      - passo
+      - sem chance
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+  - intent: humor_excelente
+    examples: |
+      - perfeito
+      - ótimo
+      - incrível
+      - me sentindo o máximo
+      - maravilhoso
+      - estou me sentindo muito bem
+      - estou ótimo
+      - estou ótima
+      - estou incrível
+      - vou salvar o mundo
+      - super animado
+      - super animada
+      - extremamente bom
+      - tão perfeito
+      - tão perfeita
+      - tão bom
+      - tão boa
+      - impecável
+      - show de bola
+      - massa
+      - demais
 
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+  - intent: humor_infeliz
+    examples: |
+      - meu dia foi horrível
+      - estou triste
+      - não estou me sentindo muito bem
+      - estou desapontad[oa]
+      - super triste
+      - tô muito triste
+      - chatead[oa]
+      - muito mal
+      - infeliz
+      - não tô legal
+      - não tô nada bem
+      - para baixo
+      - deprimid[oa]
+      - magoad[oa]
+      - arrasad[oa]
 
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+  - intent: ping
+    examples: |
+      - ping
+
+  - intent: quem_criou_o_bot
+    examples: |
+      - como você foi construido
+      - como voce foi construído
+      - quem te criou
+      - quem te desenvolveu
+      - quem te programou
+      - você tem pai
+      - qual seu pai
+      - onde voce nasceu
+      - quando vc nasceu
+      - quem te fez
+      - quem te produziu
+      - quem é seu pai
+      - fez o ivo
+      - criou o ivo
+      - produziu o ivo
+      - desenvolveu a tais
+      - desenvolveu
+      - criou
+      - produziu
+      - programou
+
+  - intent: agradecimento
+    examples: |
+      - perfeito muito agradecido
+      - obrigado tirou minhas duvidas
+      - obrigada por me ajudar
+      - obrigado por me ajudar
+      - obrigada, tais
+      - obrigado, tais
+      - agradecido
+      - agradecida
+      - obrigada
+      - obrigado
+      - grato
+      - grata
+      - thanks
+      - thank you
+      - merci
+      - gracias
+
+  - intent: solicitar_documento
+    examples: |
+      - documento
+      - preciso de um documento
+      - necessito de um documento
+  
+  - intent: fornecer_tipo_documento
+    examples: |
+      - preciso de um documento do tipo [atestado](tipo_documento)
+      - preciso de um [atestado](tipo_documento)
+      - um [atestado](tipo_documento)
+      - [atestado](tipo_documento)
+      - [matricula](tipo_documento)
+
+  - intent: fora_de_escopo
+    examples: |
+      - você fala sobre o meio ambiente
+      - qual a origem do mundo
+      - vc gosta de carnaval
+      - batatinha quando nasce
+      - imbecil
+      - imbécil
+      - nojento
+      - chato
+      - babaca
+      - feio
+      - burro

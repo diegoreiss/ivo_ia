@@ -1,33 +1,91 @@
 version: "3.1"
 
 intents:
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - afirmacao
+  - despedida
+  - fora_de_escopo
+  - humor_excelente
+  - humor_infeliz
+  - negacao
+  - ping
+  - quem_criou_o_bot
+  - saudacao
+  - solicitar_documento
+  - fornecer_tipo_documento
+
+entities:
+  - tipo_documento
+
+slots:
+  tipo_documento:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: tipo_documento
+        conditions:
+          - active_loop: tipo_documento_form
+
+forms:
+  tipo_documento_form:
+    required_slots:
+      - tipo_documento
 
 responses:
-  utter_greet:
-  - text: "Hey! How are you?"
+  utter_padrao:
+    - text: Desculpe, ainda não sei falar sobre isso ou talvez não consegui entender direito. Você pode perguntar de novo de outro jeito?
+    - text: Hummmm... Não sei se entendi. Pode escrever de outra forma?
+    - text: Acho que não te entendi, você pode me perguntar de novo usando outras palavras?
+    - text: Vamos tentar mais uma vez? Eu não consegui te entender direito, me pergunta de outro jeito?
 
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  utter_fora_de_escopo:
+    - text: Desculpe, não posso te ajudar com isso.
+
+  utter_saudacao:
+    - text: Oi, eu sou o IVO, um assistente virtual! Uhuu! Manda aí um assunto que te interessa :)
+    - text: Olá!!! Você está falando com o IVO, sou um assistente virtual feito para te ajudar com algumas informações!
+
+  utter_oferecer_ajuda:
+    - text: Olá! Como posso ajudar você hoje?
+    - text: "E aí, qual nosso próximo assunto?"
 
   utter_did_that_help:
-  - text: "Did that help you?"
+    - text: Isso de alguma forma te ajudou?
+    - text: Isso te ajudou?
+    - text: Isso ajudou você?
 
-  utter_happy:
-  - text: "Great, carry on!"
+  utter_agradecimento:
+    - text: De nada, é sempre um prazer ajudar!
+    - text: Qual o próximo assunto que te interessa?
 
-  utter_goodbye:
-  - text: "Bye"
+  utter_despedida:
+    - text: Foi um prazer te ajudar! Sempre que tiver alguma dúvida, volte aqui! Até logo!
+    - text: Foi um prazer te ajudar! Sempre que precisar, volte aqui! Até a próxima!
+    - text: Foi um prazer te ajudar! Quando surgir alguma dúvida, volte aqui! Até mais!
 
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+    - text: I am a bot, powered by Rasa.
+
+  utter_pong:
+    - text: PONG!
+    - text: pong!
+    - text: pong
+    - text: PONG
+    - text: Pong!
+    - text: Pong
+  
+  utter_ask_tipo_documento:
+    - text: Certo, que tipo de documento você deseja?
+    - text: Que tipo de documento?
+    - text: Quais documentos deseja?
+
+  utter_lembrar:
+    - text: "apenas um teste para lembrar"
+
+actions:
+  - action_ask_tipo_documento
+  - action_submit_form_tipo_documento
+  - action_dar_oi
 
 session_config:
   session_expiration_time: 60
