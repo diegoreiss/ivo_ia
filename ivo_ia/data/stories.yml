@@ -20,6 +20,8 @@ stories:
       - active_loop: null
       - action: action_submit_form_tipo_documento
 
+  - story:     
+
 # - story: sad path 1
 #   steps:
 #   - intent: greet

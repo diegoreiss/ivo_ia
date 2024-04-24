@@ -5,7 +5,6 @@ nlu:
     examples: |
       - oi
       - olá
-      - hey
       - tudo bem?
       - bom dia
       - boa tarde
@@ -180,3 +179,44 @@ nlu:
       - babaca
       - feio
       - burro
+
+  - intent: solicitar_informacao_horario
+    examples: |
+      - que horas começa a aula 
+      - qual o horario da aula 
+      - qual horario das aulas do matutino
+      - qual horario das aulas do vespertino
+      - qual horario das aulas da manha
+      - qual horario das aulas da tarde
+      - que horas começa a aula da manha
+      - que horas acaba a aula da manha
+      - que horas começa a aula da tarde
+      - que horas acaba a aula da tarde
+  
+  - intent: solicitar_informação_cronograma
+    examples: |
+      - tem aula amanha?
+      - tem feriado esse mes
+      - qual minhas aulas de hoje
+      - qual minhas aulas de amanha
+      - qual minhas aulas da semana
+      - aulas de amanha
+      - aulas de hoje
+      - aulas de semana
+
+  - intent: solicitar_informação_pessoal
+    examples: |
+      - quantas faltas eu tenho [matemática] (tipo_materia) 
+      - quantas faltas eu tenho em matemática
+      - quantas faltas eu tenho em portugues
+      - quantas faltas eu tenho em lingua portuguesa
+      - quantas faltas eu tenho em sociologia
+      - quantas faltas eu tenho em filosofia
+      - quantas faltas eu tenho em geografia
+      - quantas faltas eu tenho em historia
+      - quantas faltas eu tenho em biologia
+      - quantas faltas eu tenho em fisica
+      - quantas faltas eu tenho em quimica
+      - quantas faltas eu tenho em ingles
+      - quantas faltas eu tenho em linguas estrangeiras
+      

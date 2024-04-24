@@ -15,6 +15,7 @@ intents:
 
 entities:
   - tipo_documento
+  - tipo_materia
 
 slots:
   tipo_documento:
