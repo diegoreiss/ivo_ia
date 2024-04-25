@@ -1,6 +1,8 @@
 # ivo_ia
 
 ![Static Badge](https://img.shields.io/badge/Python-3.10-1?style=for-the-badge&logo=python&logoColor=yellow&color=blue)
+![Static Badge](https://img.shields.io/badge/Rasa-3-1?style=for-the-badge&logo=rasa&logoColor=yellow&color=purple)
+
 
 Para treinar o modelo :
 
