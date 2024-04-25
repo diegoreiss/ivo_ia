@@ -182,6 +182,7 @@ nlu:
       - um [historico escolar](tipo_documento)
       - preciso de um documento do tipo [historico escolar](tipo_documento)
       - preciso de um [historico escolar](tipo_documento)
+      - historico escolar
 
   - intent: fora_de_escopo
     examples: |

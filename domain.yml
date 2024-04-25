@@ -87,6 +87,10 @@ responses:
     - text: O processo deste documento necessita de uma demanda maior. Com isso irei passar para pendente, uma vez concluido voce recebera uma notificação por email bem como o documento
     - text: Este documento ainda não sou capaz de gerar, mas fique tranquilo que irei passar para pendente, assim que concluido voce recebera um email contendo o documento solicitado.
 
+  utter_atendimento_final:
+    - text: Precisa de algo a mais?
+    - text: Necessita de mais alguma informação?
+    - text: Posso lhe ajudar com algo a mais?
 
   utter_lembrar:
     - text: "apenas um teste para lembrar"

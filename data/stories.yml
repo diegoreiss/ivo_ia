@@ -32,6 +32,14 @@ stories:
         - active_loop: null
         - action: action_submit_form_tipo_documento
 
+  - story: solicitar_documento3
+    steps:
+        - intent: fornecer_historico_escolar
+        - action: utter_fornecer_historico_escolar
+        - action: utter_atendimento_final
+        - intent: negacao
+        - action: utter_despedida
+
 # - story: sad path 1
 #   steps:
 #   - intent: greet
