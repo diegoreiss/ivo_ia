@@ -20,7 +20,17 @@ stories:
       - active_loop: null
       - action: action_submit_form_tipo_documento
 
-  - story:     
+  - story: solicitar_documento2
+    steps:
+        - intent: solicitar_documento
+        - action: tipo_documento_form
+        - active_loop: tipo_documento_form
+        - slot_was_set:
+          - requested_slot: tipo_documento
+        - slot_was_set:
+          - requested_slot: null
+        - active_loop: null
+        - action: action_submit_form_tipo_documento
 
 # - story: sad path 1
 #   steps:

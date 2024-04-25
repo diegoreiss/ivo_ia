@@ -157,14 +157,31 @@ nlu:
       - documento
       - preciso de um documento
       - necessito de um documento
+      - quero um documento
+      - solicitar documento
+      - atestado de matricula
+      - atestado de frequencia
+      
   
   - intent: fornecer_tipo_documento
     examples: |
-      - preciso de um documento do tipo [atestado](tipo_documento)
-      - preciso de um [atestado](tipo_documento)
-      - um [atestado](tipo_documento)
-      - [atestado](tipo_documento)
-      - [matricula](tipo_documento)
+      - preciso de um documento do tipo [atestado de matricula](tipo_documento)
+      - preciso de um documento do tipo [atestado de frequencia](tipo_documento)
+      - preciso de um [atestado de matricula](tipo_documento)
+      - preciso de um [atestado de frequencia](tipo_documento)
+      - um [atestado de frequencia](tipo_documento)
+      - um [atestado de matricula](tipo_documento)
+      - [atestado de frequencia](tipo_documento)
+      - [atestado de matricula](tipo_documento)
+      
+
+   - intent: fornecer_historico_escolar
+    examples: |
+      - [historico escolar](tipo_documento)
+      - [historico escolar](tipo_documento)
+      - um [historico escolar](tipo_documento)
+      - preciso de um documento do tipo [historico escolar](tipo_documento)
+      - preciso de um [historico escolar](tipo_documento)
 
   - intent: fora_de_escopo
     examples: |

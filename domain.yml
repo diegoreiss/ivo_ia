@@ -12,6 +12,7 @@ intents:
   - saudacao
   - solicitar_documento
   - fornecer_tipo_documento
+  - fornecer_historico_escolar
 
 entities:
   - tipo_documento
@@ -79,6 +80,13 @@ responses:
     - text: Certo, que tipo de documento você deseja?
     - text: Que tipo de documento?
     - text: Quais documentos deseja?
+    - text: Informe qual documento você deseja
+    - text: Qual documento você precisa?
+
+  utter_fornecer_historico_escolar:
+    - text: O processo deste documento necessita de uma demanda maior. Com isso irei passar para pendente, uma vez concluido voce recebera uma notificação por email bem como o documento
+    - text: Este documento ainda não sou capaz de gerar, mas fique tranquilo que irei passar para pendente, assim que concluido voce recebera um email contendo o documento solicitado.
+
 
   utter_lembrar:
     - text: "apenas um teste para lembrar"
