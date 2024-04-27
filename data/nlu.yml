@@ -174,8 +174,7 @@ nlu:
       - [atestado de frequencia](tipo_documento)
       - [atestado de matricula](tipo_documento)
       
-
-   - intent: fornecer_historico_escolar
+  - intent: fornecer_historico_escolar
     examples: |
       - [historico escolar](tipo_documento)
       - [historico escolar](tipo_documento)
