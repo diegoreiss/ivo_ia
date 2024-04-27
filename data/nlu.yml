@@ -213,28 +213,25 @@ nlu:
   
   - intent: solicitar_informação_cronograma
     examples: |
-      - tem aula amanha?
-      - tem feriado esse mes
-      - qual minhas aulas de hoje
-      - qual minhas aulas de amanha
-      - qual minhas aulas da semana
-      - aulas de amanha
-      - aulas de hoje
-      - aulas de semana
+      - qual minhas aulas de [hoje] (tipo_cronograma)
+      - qual minhas aulas de [amanha] (tipo_cronograma)
+      - qual minhas aulas da [semana] (tipo_cronograma)
+      - aulas de [amanha] (tipo_cronograma)
+      - aulas de [hoje] (tipo_cronograma)
+      - aulas da [semana] (tipo_cronograma)
 
   - intent: solicitar_informação_pessoal
     examples: |
       - quantas faltas eu tenho [matemática] (tipo_materia) 
-      - quantas faltas eu tenho em matemática
-      - quantas faltas eu tenho em portugues
-      - quantas faltas eu tenho em lingua portuguesa
-      - quantas faltas eu tenho em sociologia
-      - quantas faltas eu tenho em filosofia
-      - quantas faltas eu tenho em geografia
-      - quantas faltas eu tenho em historia
-      - quantas faltas eu tenho em biologia
-      - quantas faltas eu tenho em fisica
-      - quantas faltas eu tenho em quimica
-      - quantas faltas eu tenho em ingles
-      - quantas faltas eu tenho em linguas estrangeiras
+      - quantas faltas eu tenho em [portugues] (tipo_materia)
+      - quantas faltas eu tenho em [lingua portuguesa] (tipo_materia)
+      - quantas faltas eu tenho em [sociologia] (tipo_materia)
+      - quantas faltas eu tenho em [filosofia] (tipo_materia)
+      - quantas faltas eu tenho em [geografia] (tipo_materia)
+      - quantas faltas eu tenho em [historia] (tipo_materia)
+      - quantas faltas eu tenho em [biologia] (tipo_materia)
+      - quantas faltas eu tenho em [fisica] (tipo_materia)
+      - quantas faltas eu tenho em [quimica] (tipo_materia)
+      - quantas faltas eu tenho em [ingles] (tipo_materia)
+      - quantas faltas eu tenho em [linguas estrangeiras] (tipo_materia)
       

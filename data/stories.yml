@@ -40,22 +40,32 @@ stories:
         - intent: negacao
         - action: utter_despedida
 
-# - story: sad path 1
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: mood_unhappy
-#   - action: utter_cheer_up
-#   - action: utter_did_that_help
-#   - intent: affirm
-#   - action: utter_happy
+  - story: historico_falta_sem_saudacao
+    steps:
+      - intent: solicitar_informação_pessoal
+      - action: utter_solicitar_informação_pessoal
+      - action: utter_atendimento_final
 
-# - story: sad path 2
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
-#   - intent: mood_unhappy
-#   - action: utter_cheer_up
-#   - action: utter_did_that_help
-#   - intent: deny
-#   - action: utter_goodbye
+  - story: historico_falta
+    steps:
+      - intent: saudacao
+      - action: utter_saudacao
+      - intent: solicitar_informação_pessoal
+      - action: utter_solicitar_informação_pessoal
+      - intent: agradecimento
+      - action: utter_despedida    
+
+  - story: solicitar_cronograma
+    steps:
+      - intent: saudacao
+      - action: utter_saudacao
+      - intent: solicitar_informação_cronograma
+      - action: utter_solicitar_informação_cronograma
+      - intent: agradecimento
+      - action: utter_despedida
+
+  - story: solicitar_cronograma_sem_saudacao
+    steps:
+      - intent: solicitar_informação_cronograma
+      - action: utter_solicitar_informação_cronograma
+      - action: utter_atendimento_final

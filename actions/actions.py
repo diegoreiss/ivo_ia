@@ -34,7 +34,7 @@ from rasa_sdk.types import DomainDict
 
 
 ALLOWED_TIPO_DOCUMENTO = (
-    'atestado de frequencia', 'atestado de matricula', 'historico escolar'
+    'atestado de frequencia', 'atestado de matricula', 'historico escolar',
 )
 
 class ActionDarOi(Action):

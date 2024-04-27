@@ -13,10 +13,14 @@ intents:
   - solicitar_documento
   - fornecer_tipo_documento
   - fornecer_historico_escolar
+  - solicitar_informação_pessoal
+  - solicitar_informação_cronograma
+  - solicitar_informacao_horario
 
 entities:
   - tipo_documento
   - tipo_materia
+  - tipo_cronograma
 
 slots:
   tipo_documento:
@@ -94,6 +98,14 @@ responses:
 
   utter_lembrar:
     - text: "apenas um teste para lembrar"
+
+  utter_solicitar_informação_pessoal:
+    - text: Em #inserir materia aqui!# você possui #inserir  n° faltar aqui# faltas
+    - text: Na disciplina de #inserir materia aqui!# você possui #inserir n° faltar aqui# faltas
+
+  utter_solicitar_informacao_horario:
+    - text: Segue gronograma de aulas #inserir cronograma aqui#
+    - text: Claro, segue seu cronograma #inserir cronograma aqui#
 
 actions:
   - action_ask_tipo_documento
