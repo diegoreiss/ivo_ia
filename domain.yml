@@ -16,6 +16,7 @@ intents:
   - solicitar_informação_pessoal
   - solicitar_informação_cronograma
   - solicitar_informacao_horario
+  - agradecimento
 
 entities:
   - tipo_documento
@@ -113,6 +114,7 @@ actions:
   - action_ask_tipo_documento
   - action_submit_form_tipo_documento
   - action_dar_oi
+  - utter_solicitar_informação_cronograma
 
 
 
