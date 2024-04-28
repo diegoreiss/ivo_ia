@@ -107,10 +107,14 @@ responses:
     - text: Segue gronograma de aulas #inserir cronograma aqui#
     - text: Claro, segue seu cronograma #inserir cronograma aqui#
 
+
+#TODA VEZ QUE CRIAR UM UTTER, CADASTRAR NAS ACTIONS
 actions:
   - action_ask_tipo_documento
   - action_submit_form_tipo_documento
   - action_dar_oi
+
+
 
 session_config:
   session_expiration_time: 60
