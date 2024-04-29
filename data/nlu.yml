@@ -132,6 +132,22 @@ nlu:
       - criou
       - produziu
       - programou
+  
+  - intent: ajuda_com_o_bot
+    examples: |
+      - meajuda
+      - me ajuda
+      - preciso de ajuda
+      - o que vc faz?
+      - oq vc faz?
+      - como você pode me ajudar
+      - como você pode me ajudar?
+      - como voce pode me ajudar?
+      - como você pode me ajudar?
+      - como vc me ajuda
+      - como vc me ajuda?
+      - como você me ajuda?
+      - como voce me ajuda?
 
   - intent: agradecimento
     examples: |

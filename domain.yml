@@ -17,6 +17,7 @@ intents:
   - solicitar_informação_cronograma
   - solicitar_informacao_horario
   - agradecimento
+  - ajuda_com_o_bot
 
 entities:
   - tipo_documento
@@ -69,6 +70,32 @@ responses:
     - text: Foi um prazer te ajudar! Sempre que tiver alguma dúvida, volte aqui! Até logo!
     - text: Foi um prazer te ajudar! Sempre que precisar, volte aqui! Até a próxima!
     - text: Foi um prazer te ajudar! Quando surgir alguma dúvida, volte aqui! Até mais!
+  
+  utter_ajuda_com_o_bot:
+    - text: | 
+        Olá! Estou à disposição para ajudar com uma série de questões e informações importantes:
+
+          - Documentos:
+
+            -- Atestado de matrícula: Essencial para comprovar a sua vinculação à instituição de ensino, válido em diversas situações acadêmicas e administrativas.
+
+
+            -- Atestado de frequência: Documento que confirma a sua presença nas atividades escolares, fundamental para cumprir requisitos de participação e para eventuais comprovações.
+
+
+            -- Histórico escolar: Um registro detalhado do seu desempenho acadêmico ao longo do tempo, importante para processos de transferência, candidaturas a bolsas de estudo e outros fins.
+
+          - Dúvidas frequentes:
+
+            -- Faltas: Orientações e esclarecimentos sobre o registro e a compensação de faltas, além de informações sobre os impactos no aproveitamento acadêmico.
+
+
+            -- Horário escolar: Detalhes sobre os horários de aulas, intervalos e outras atividades programadas, ajudando a organizar sua rotina de estudos de forma eficiente.
+
+          Além disso, estou aqui para receber outras dúvidas que você possa ter. 
+          Dependendo da situação, posso alertar a coordenação para pontuar a sua dúvida para eles, sejam elas informações mais específicas e precisas. 
+
+          Estou aqui para ajudar a garantir a sua melhor experiência acadêmica!
 
   utter_iamabot:
     - text: I am a bot, powered by Rasa.
@@ -115,8 +142,7 @@ actions:
   - action_submit_form_tipo_documento
   - action_dar_oi
   - utter_solicitar_informação_cronograma
-
-
+  - utter_ajuda_com_o_bot
 
 session_config:
   session_expiration_time: 60
