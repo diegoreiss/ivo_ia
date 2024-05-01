@@ -21,7 +21,6 @@ intents:
 
 entities:
   - tipo_documento
-  - tipo_materia
   - tipo_cronograma
 
 slots:
@@ -45,9 +44,6 @@ responses:
     - text: Hummmm... Não sei se entendi. Pode escrever de outra forma?
     - text: Acho que não te entendi, você pode me perguntar de novo usando outras palavras?
     - text: Vamos tentar mais uma vez? Eu não consegui te entender direito, me pergunta de outro jeito?
-
-  utter_fora_de_escopo:
-    - text: Desculpe, não posso te ajudar com isso.
 
   utter_saudacao:
     - text: Oi, eu sou o IVO, um assistente virtual! Uhuu! Manda aí um assunto que te interessa :)
@@ -73,29 +69,14 @@ responses:
   
   utter_ajuda_com_o_bot:
     - text: | 
-        Olá! Estou à disposição para ajudar com uma série de questões e informações importantes:
+        Sou um chat, para ajudar a tirar suas duvidas dentro da instituição, segue alguns dos atendimento que temos no momento:
 
-          - Documentos:
+          - Documentos: Atestado de frequência, Atestado de matrícula e Histórico escolar
 
-            -- Atestado de matrícula: Essencial para comprovar a sua vinculação à instituição de ensino, válido em diversas situações acadêmicas e administrativas.
-
-
-            -- Atestado de frequência: Documento que confirma a sua presença nas atividades escolares, fundamental para cumprir requisitos de participação e para eventuais comprovações.
-
-
-            -- Histórico escolar: Um registro detalhado do seu desempenho acadêmico ao longo do tempo, importante para processos de transferência, candidaturas a bolsas de estudo e outros fins.
-
-          - Dúvidas frequentes:
-
-            -- Faltas: Orientações e esclarecimentos sobre o registro e a compensação de faltas, além de informações sobre os impactos no aproveitamento acadêmico.
-
-
-            -- Horário escolar: Detalhes sobre os horários de aulas, intervalos e outras atividades programadas, ajudando a organizar sua rotina de estudos de forma eficiente.
+          - Dúvidas frequentes: Faltas e Horário escolar
 
           Além disso, estou aqui para receber outras dúvidas que você possa ter. 
           Dependendo da situação, posso alertar a coordenação para pontuar a sua dúvida para eles, sejam elas informações mais específicas e precisas. 
-
-          Estou aqui para ajudar a garantir a sua melhor experiência acadêmica!
 
   utter_iamabot:
     - text: I am a bot, powered by Rasa.
@@ -128,12 +109,25 @@ responses:
     - text: "apenas um teste para lembrar"
 
   utter_solicitar_informação_pessoal:
-    - text: Em #inserir materia aqui!# você possui #inserir  n° faltar aqui# faltas
-    - text: Na disciplina de #inserir materia aqui!# você possui #inserir n° faltar aqui# faltas
+    - text: |
+        - Você possui as seguintes faltas:
+            #inserir faltas aqui#
+    - text: |
+        - Claro, segue suas faltas: 
+            #inserir faltas aqui#        
 
-  utter_solicitar_informacao_horario:
-    - text: Segue gronograma de aulas #inserir cronograma aqui#
-    - text: Claro, segue seu cronograma #inserir cronograma aqui#
+
+  utter_solicitar_informacao_cronograma:
+    - text: |
+        Segue gronograma de aulas: 
+          - #inserir cronograma aqui#
+
+    - text: |
+        Claro, segue seu cronograma: 
+          - #inserir cronograma aqui#
+
+  utter_fora_de_escopo:
+    - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento.        
 
 
 #TODA VEZ QUE CRIAR UM UTTER, CADASTRAR NAS ACTIONS
@@ -143,6 +137,7 @@ actions:
   - action_dar_oi
   - utter_solicitar_informação_cronograma
   - utter_ajuda_com_o_bot
+  - utter_fora_de_escopo
 
 session_config:
   session_expiration_time: 60

@@ -6,9 +6,6 @@ nlu:
       - oi
       - olá
       - tudo bem?
-      - bom dia
-      - boa tarde
-      - boa noite
       - e aí?
       - vamos lá
       - blz
@@ -24,7 +21,6 @@ nlu:
       - falô
       - fui
       - já vou
-      - boa noite
       - até mais
       - até qualquer dia
       - tchau, tchau
@@ -168,7 +164,18 @@ nlu:
       - merci
       - gracias
 
-  - intent: solicitar_documento
+  # - intent: solicitar_documento
+  #   examples: |
+  #     - documento
+  #     - preciso de um documento
+  #     - necessito de um documento
+  #     - quero um documento
+  #     - solicitar documento
+  #     - atestado de matricula
+  #     - atestado de frequencia
+      
+  
+  - intent: fornecer_tipo_documento
     examples: |
       - documento
       - preciso de um documento
@@ -177,10 +184,6 @@ nlu:
       - solicitar documento
       - atestado de matricula
       - atestado de frequencia
-      
-  
-  - intent: fornecer_tipo_documento
-    examples: |
       - preciso de um documento do tipo [atestado de matricula](tipo_documento)
       - preciso de um documento do tipo [atestado de frequencia](tipo_documento)
       - preciso de um [atestado de matricula](tipo_documento)
@@ -228,25 +231,16 @@ nlu:
   
   - intent: solicitar_informação_cronograma
     examples: |
-      - qual minhas aulas de [hoje] (tipo_cronograma)
-      - qual minhas aulas de [amanha] (tipo_cronograma)
-      - qual minhas aulas da [semana] (tipo_cronograma)
-      - aulas de [amanha] (tipo_cronograma)
-      - aulas de [hoje] (tipo_cronograma)
-      - aulas da [semana] (tipo_cronograma)
+      - cronograma
+      - quero meu cronograma
+      - qual meu cronograma 
+      - preciso do meu cronograma
 
   - intent: solicitar_informação_pessoal
     examples: |
-      - quantas faltas eu tenho [matemática] (tipo_materia) 
-      - quantas faltas eu tenho em [portugues] (tipo_materia)
-      - quantas faltas eu tenho em [lingua portuguesa] (tipo_materia)
-      - quantas faltas eu tenho em [sociologia] (tipo_materia)
-      - quantas faltas eu tenho em [filosofia] (tipo_materia)
-      - quantas faltas eu tenho em [geografia] (tipo_materia)
-      - quantas faltas eu tenho em [historia] (tipo_materia)
-      - quantas faltas eu tenho em [biologia] (tipo_materia)
-      - quantas faltas eu tenho em [fisica] (tipo_materia)
-      - quantas faltas eu tenho em [quimica] (tipo_materia)
-      - quantas faltas eu tenho em [ingles] (tipo_materia)
-      - quantas faltas eu tenho em [linguas estrangeiras] (tipo_materia)
+      - quantas faltas eu tenho
+      - quero saber minhas faltas
+      - faltas
+      - preciso ver minhas faltas
+      - quero ver minhas faltas
       
