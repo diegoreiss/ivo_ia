@@ -14,7 +14,7 @@ stories:
   - story: fora_de_escopo
     steps:
       - intent: fora_de_escopo
-      - action: utter_fora_de_escopo    
+      - action: utter_fora_de_escopo   
   
   - story: solicitar_documento
     steps:
@@ -79,3 +79,17 @@ stories:
       - intent: solicitar_informação_cronograma
       - action: utter_solicitar_informação_cronograma
       - action: utter_atendimento_final
+
+  - story: solicitar_horario
+    steps:
+      - intent: solicitar_informacao_horario
+      - action: utter_informacao_horario
+      - action: utter_atendimento_final
+
+  - story: solicitar_horario_saudacao
+    steps:
+      - intent: saudacao
+      - action: utter_saudacao
+      - intent: solicitar_informacao_horario
+      - action: utter_informacao_horario
+      - action: utter_atendimento_final     

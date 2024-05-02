@@ -144,6 +144,11 @@ nlu:
       - como vc me ajuda?
       - como você me ajuda?
       - como voce me ajuda?
+      - preciso de informações?
+      - quero uma informação
+      - ajuda
+      - informação
+      - informações
 
   - intent: agradecimento
     examples: |
@@ -215,10 +220,11 @@ nlu:
       - babaca
       - feio
       - burro
+      - quero fazer miojo
 
   - intent: solicitar_informacao_horario
     examples: |
-      - que horas começa a aula 
+      - que horas começa as aulas
       - qual o horario da aula 
       - qual horario das aulas do matutino
       - qual horario das aulas do vespertino

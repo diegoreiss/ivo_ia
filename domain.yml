@@ -21,7 +21,6 @@ intents:
 
 entities:
   - tipo_documento
-  - tipo_cronograma
 
 slots:
   tipo_documento:
@@ -126,9 +125,17 @@ responses:
         Claro, segue seu cronograma: 
           - #inserir cronograma aqui#
 
-  utter_fora_de_escopo:
-    - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento.        
+  utter_informacao_horario:
+    - text: |
+        - As aulas no período matutino começam as 07:30 e vão ate 11:30.
 
+        - No período vespertino, elas se iniciam 13:00 até 17:00.
+
+        - Já no período noturno, as aulas se iniciam as 18:40 e termina as 22:00.
+
+  utter_fora_de_escopo:
+    - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento. 
+ 
 
 #TODA VEZ QUE CRIAR UM UTTER, CADASTRAR NAS ACTIONS
 actions:
@@ -137,7 +144,8 @@ actions:
   - action_dar_oi
   - utter_solicitar_informação_cronograma
   - utter_ajuda_com_o_bot
-  - utter_fora_de_escopo
+  - action_fora_de_escopo
+  - utter_informacao_horario
 
 session_config:
   session_expiration_time: 60

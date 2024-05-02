@@ -65,3 +65,16 @@ class SubmitFormTipoDocumento(Action):
         dispatcher.utter_message(text=f'form enviado {tracker.get_slot("tipo_documento")}')
 
         return []
+
+
+class ActionForaEscopo(Action):
+    def name(self) -> Text:
+        return "action_fora_de_escopo"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        dispatcher.utter_message(response="utter_fora_de_escopo")
+        
+        return []
