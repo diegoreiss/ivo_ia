@@ -23,7 +23,12 @@ rules:
       - intent: despedida
       - action: utter_despedida
   
-  - rule: utter_fora_de_escopo
+  - rule: fora_de_escopo
     steps:
       - intent: fora_de_escopo
       - action: utter_fora_de_escopo
+
+  - rule: nlu_fallback
+    steps:
+      - intent: nlu_fallback
+      - action: utter_please_rephrase

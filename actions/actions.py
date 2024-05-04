@@ -67,14 +67,20 @@ class SubmitFormTipoDocumento(Action):
         return []
 
 
-class ActionForaEscopo(Action):
-    def name(self) -> Text:
-        return "action_fora_de_escopo"
+class ActionDefaultFallback(Action):
+    """Executes the fallback action and goes back to the previous state
+    of the dialogue"""
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        dispatcher.utter_message(response="utter_fora_de_escopo")
-        
-        return []
+    def name(self) -> Text:
+        return 'action_default_fallback_name'
+
+    async def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        dispatcher.utter_message(template="my_custom_fallback_template")
+
+        # Revert user message which led to fallback.
+        return ['UserUtteranceReverted()']
