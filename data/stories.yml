@@ -5,12 +5,12 @@ stories:
     steps:
       - intent: saudacao
       - action: utter_saudacao
-  
+
   - story: pedindo_ajuda_do_bot
     steps:
       - intent: ajuda_com_o_bot
       - action: utter_ajuda_com_o_bot
- 
+
   - story: solicitar_documento
     steps:
       - intent: saudacao
@@ -58,7 +58,7 @@ stories:
       - intent: solicitar_informação_pessoal
       - action: utter_solicitar_informação_pessoal
       - intent: agradecimento
-      - action: utter_despedida    
+      - action: utter_despedida
 
   - story: solicitar_cronograma
     steps:
@@ -87,4 +87,4 @@ stories:
       - action: utter_saudacao
       - intent: solicitar_informacao_horario
       - action: utter_informacao_horario
-      - action: utter_atendimento_final     
+      - action: utter_atendimento_final
