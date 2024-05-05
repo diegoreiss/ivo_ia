@@ -103,8 +103,7 @@ nlu:
       - arrasad[oa]
 
   - intent: ping
-    examples: |
-      - ping
+    examples: '- ping'
 
   - intent: quem_criou_o_bot
     examples: |
@@ -225,7 +224,7 @@ nlu:
   - intent: solicitar_informacao_horario
     examples: |
       - que horas começa as aulas
-      - qual o horario da aula 
+      - qual o horario da aula
       - qual horario das aulas do matutino
       - qual horario das aulas do vespertino
       - qual horario das aulas da manha
@@ -234,12 +233,12 @@ nlu:
       - que horas acaba a aula da manha
       - que horas começa a aula da tarde
       - que horas acaba a aula da tarde
-  
+
   - intent: solicitar_informação_cronograma
     examples: |
       - cronograma
       - quero meu cronograma
-      - qual meu cronograma 
+      - qual meu cronograma
       - preciso do meu cronograma
 
   - intent: solicitar_informação_pessoal
