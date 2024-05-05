@@ -55,15 +55,13 @@ responses:
     - text: Foi um prazer te ajudar! Quando surgir alguma dúvida, volte aqui! Até mais!
   
   utter_ajuda_com_o_bot:
-    - text: | 
-        Sou um chat, para ajudar a tirar suas duvidas dentro da instituição, segue alguns dos atendimento que temos no momento:
-
-          - Documentos: Atestado de frequência, Atestado de matrícula e Histórico escolar
-
-          - Dúvidas frequentes: Faltas e Horário escolar
-
-          Além disso, estou aqui para receber outras dúvidas que você possa ter. 
-          Dependendo da situação, posso alertar a coordenação para pontuar a sua dúvida para eles, sejam elas informações mais específicas e precisas. 
+    - text: |
+        Sou um chat, para ajudar a tirar suas duvidas dentro da instituição
+        Segue alguns dos atendimento que temos no momento:
+        Documentos: Atestado de frequência, Atestado de matrícula e Histórico escolar
+        Dúvidas frequentes: Faltas e Horário escolar
+        Além disso, estou aqui para receber outras dúvidas que você possa ter.
+        Dependendo da situação, posso alertar a coordenação para pontuar a sua dúvida para eles, sejam elas informações mais específicas e precisas.
 
   utter_ask_tipo_documento:
     - text: Certo, que tipo de documento você deseja?
@@ -74,14 +72,14 @@ responses:
 
   utter_fornecer_historico_escolar:
     - text: |
-        O processo deste documento necessita de uma demanda maior. Com isso irei passar para um responsável, uma vez concluido voce recebera uma notificação por email bem como o documento solicitado.
-
-          - Você pode acompanhar esse processo na tela de pendências.
+        O processo deste documento necessita de uma demanda maior. Com isso irei passar para um responsável.
+        Uma vez concluido voce recebera uma notificação por email bem como o documento solicitado.
+        Você pode acompanhar esse processo na tela de pendências.
 
     - text: |
-        Este documento ainda não sou capaz de gerar, mas fique tranquilo que irei passar para um responsável, assim que concluido voce recebera um email contendo o documento solicitado.
-
-          - Este processo  você encontra na tela de pendências.
+        Este documento ainda não sou capaz de gerar, mas fique tranquilo que irei passar para um responsável.
+        Assim que concluido voce recebera um email contendo o documento solicitado.
+        Este processo você encontra na tela de pendências.
 
   utter_atendimento_final:
     - text: Precisa de algo a mais?
@@ -89,30 +87,18 @@ responses:
     - text: Posso lhe ajudar com algo a mais?
 
   utter_solicitar_informação_pessoal:
-    - text: |
-        - Você possui as seguintes faltas:
-            #inserir faltas aqui#
-    - text: |
-        - Claro, segue suas faltas: 
-            #inserir faltas aqui#        
-
+    - text: 'Você possui as seguintes faltas:'
+    - text: 'Claro, segue suas faltas:'
 
   utter_solicitar_informacao_cronograma:
-    - text: |
-        Segue gronograma de aulas: 
-          - #inserir cronograma aqui#
-
-    - text: |
-        Claro, segue seu cronograma: 
-          - #inserir cronograma aqui#
+    - text: 'Segue gronograma de aulas:'
+    - text: 'Claro, segue seu cronograma:'
 
   utter_informacao_horario:
     - text: |
-        - As aulas no período matutino começam as 07:30 e vão ate 11:30.
-
-        - No período vespertino, elas se iniciam 13:00 até 17:00.
-
-        - Já no período noturno, as aulas se iniciam as 18:40 e termina as 22:00.
+        As aulas no período matutino começam as 07:30 e vão ate 11:30.
+        No período vespertino, elas se iniciam 13:00 até 17:00.
+        Já no período noturno, as aulas se iniciam as 18:40 e termina as 22:00.
 
   utter_fora_de_escopo:
     - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento. 
@@ -122,8 +108,6 @@ responses:
 
   utter_default:
     - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento, poderia reescrever? 
-
- 
 
 #TODA VEZ QUE CRIAR UM UTTER, CADASTRAR NAS ACTIONS
 actions:
