@@ -224,6 +224,8 @@ nlu:
 
   - intent: solicitar_informacao_horario
     examples: |
+      - horario escolar
+      - horario de aula
       - que horas começa as aulas
       - qual o horario da aula 
       - qual horario das aulas do matutino
@@ -237,6 +239,7 @@ nlu:
   
   - intent: solicitar_informação_cronograma
     examples: |
+      - quais aulas tenho hoje?
       - cronograma
       - quero meu cronograma
       - qual meu cronograma 
