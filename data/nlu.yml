@@ -1,6 +1,7 @@
-version: "3.1"
+version: '3.1'
 
 nlu:
+
   - intent: saudacao
     examples: |
       - oi
@@ -127,7 +128,7 @@ nlu:
       - criou
       - produziu
       - programou
-  
+
   - intent: ajuda_com_o_bot
     examples: |
       - meajuda
@@ -168,17 +169,6 @@ nlu:
       - merci
       - gracias
 
-  # - intent: solicitar_documento
-  #   examples: |
-  #     - documento
-  #     - preciso de um documento
-  #     - necessito de um documento
-  #     - quero um documento
-  #     - solicitar documento
-  #     - atestado de matricula
-  #     - atestado de frequencia
-      
-  
   - intent: fornecer_tipo_documento
     examples: |
       - documento
@@ -196,7 +186,7 @@ nlu:
       - um [atestado de matricula](tipo_documento)
       - [atestado de frequencia](tipo_documento)
       - [atestado de matricula](tipo_documento)
-      
+
   - intent: fornecer_historico_escolar
     examples: |
       - [historico escolar](tipo_documento)
@@ -248,4 +238,33 @@ nlu:
       - faltas
       - preciso ver minhas faltas
       - quero ver minhas faltas
-      
+
+  - intent: ferias
+    examples: |
+      - queria saber sobre as minhas férias
+      - minhas férias
+      - férias
+      - ferias
+
+  - intent: retorno_aulas
+    examples: |
+      - quero saber quando eu retorno das ferias
+      - quando eu retorno as minhas aulas?
+      - volta as aulas
+      - quando é a volta as aulas?
+      - retorno das férias
+      - retorno das ferias
+      - quero saber quando eu retorno das férias
+      - quando eu retorno das férias?
+      - quando eu retorno das ferias?
+
+  - intent: sos_vida
+    examples: |
+      - quero me matar
+      - quero morrer
+
+  - intent: fale_conosco_coordenacao
+    examples: |
+      - preciso falar com a coordenacao
+      - contatos da coordenacao
+      - quais os contatos da coordenacao?

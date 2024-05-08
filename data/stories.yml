@@ -1,6 +1,7 @@
-version: "3.1"
+version: '3.1'
 
 stories:
+
   - story: caminho_feliz
     steps:
       - intent: saudacao
@@ -19,31 +20,31 @@ stories:
       - action: tipo_documento_form
       - active_loop: tipo_documento_form
       - slot_was_set:
-        - requested_slot: tipo_documento
+          - requested_slot: tipo_documento
       - slot_was_set:
-        - requested_slot: null
+          - requested_slot: null
       - active_loop: null
       - action: action_submit_form_tipo_documento
 
   - story: solicitar_documento2
     steps:
-        - intent: fornecer_tipo_documento
-        - action: tipo_documento_form
-        - active_loop: tipo_documento_form
-        - slot_was_set:
+      - intent: fornecer_tipo_documento
+      - action: tipo_documento_form
+      - active_loop: tipo_documento_form
+      - slot_was_set:
           - requested_slot: tipo_documento
-        - slot_was_set:
+      - slot_was_set:
           - requested_slot: null
-        - active_loop: null
-        - action: action_submit_form_tipo_documento
+      - active_loop: null
+      - action: action_submit_form_tipo_documento
 
   - story: solicitar_documento3
     steps:
-        - intent: fornecer_historico_escolar
-        - action: utter_fornecer_historico_escolar
-        - action: utter_atendimento_final
-        - intent: negacao
-        - action: utter_despedida
+      - intent: fornecer_historico_escolar
+      - action: utter_fornecer_historico_escolar
+      - action: utter_atendimento_final
+      - intent: negacao
+      - action: utter_despedida
 
   - story: historico_falta_sem_saudacao
     steps:
@@ -88,3 +89,23 @@ stories:
       - intent: solicitar_informacao_horario
       - action: utter_informacao_horario
       - action: utter_atendimento_final
+
+  - story: dialogo_sobre_as_ferias
+    steps:
+      - intent: ferias
+      - action: utter_ferias
+
+  - story: dialogo_sobre_retorno_aulas
+    steps:
+      - intent: retorno_aulas
+      - action: utter_retorno_aulas
+
+  - story: dialogo_sobre_sos_vida
+    steps:
+      - intent: sos_vida
+      - action: utter_sos_vida
+
+  - story: dialogo_sobre_fale_conosco_coordenacao
+    steps:
+      - intent: fale_conosco_coordenacao
+      - action: utter_fale_conosco_coordenacao
