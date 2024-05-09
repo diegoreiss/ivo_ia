@@ -62,9 +62,18 @@ class SubmitFormTipoDocumento(Action):
         return 'action_submit_form_tipo_documento'
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
-        dispatcher.utter_message(text=f'form enviado {tracker.get_slot("tipo_documento")}')
-
+        tipo_documento = tracker.get_slot("tipo_documento")
+        if tipo_documento == 'historico escolar':
+            dispatcher.utter_message(response='utter_fornecer_historico_escolar')
+        else:
+            dispatcher.utter_message(text=f'form enviado {tipo_documento}')
+        
         return []
+    
+    # def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+    #     dispatcher.utter_message(text=f'form enviado {tracker.get_slot("tipo_documento")}')
+
+    #     return []
 
 
 class ActionDefaultFallback(Action):
