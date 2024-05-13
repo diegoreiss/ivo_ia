@@ -202,6 +202,20 @@ class RasaTrainingUtils:
             with open(FILE_PATHS['domain'], 'w', encoding=DEFAULT_ENCODING) as domain:
                 pyaml.dump(data, domain, sort_dicts=pyaml.PYAMLSort.none, width=500)
     
+    def get_all_responses(self, page=DEFAULT_PAGINATION_NUMBER):
+        pagination_utils = PaginationUtils()
+
+        with open(FILE_PATHS['domain'], 'r', encoding=DEFAULT_ENCODING) as domain:
+            data = yaml.safe_load(domain)
+        
+        data = pagination_utils.paginate_dict(data['responses'], DEFAULT_PAGINATION_SIZE, page)
+        data = {
+            'total_pages': data['total_pages'],
+            'responses': data['page_data']
+        }
+
+        return data
+    
     def get_response(self):
         ...
     

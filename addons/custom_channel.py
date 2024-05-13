@@ -81,6 +81,16 @@ class TrainingModel(InputChannel):
 
             return response.json({}, status=200 if result else 400)
         
+        @custom_webhook.route('/response', methods=['GET'])
+        async def get_all_responses(request: Request) -> HTTPResponse:
+            args = request.get_args()
+            page = int(args.get('page', 1))
+            rasa_training_utils = RasaTrainingUtils()
+
+            responses = rasa_training_utils.get_all_responses(page)
+
+            return response.json({'data': responses}, status=200)
+        
         @custom_webhook.route('/train', methods=['GET'])
         async def get_training_data(request: Request) -> HTTPResponse:
             rasa_training_utils = RasaTrainingUtils()

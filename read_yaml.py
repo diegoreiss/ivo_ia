@@ -7,8 +7,8 @@ from yaml.constructor import SafeConstructor
 from utils.rasa_training_utils import RasaTrainingUtils
 
 BASE_DIR = Path(__file__).parent
-nlu_file = BASE_DIR / 'data/nlu_test.yml'
-# nlu_file = BASE_DIR / 'domain_test.yml'
+# nlu_file = BASE_DIR / 'data/nlu_test.yml'
+nlu_file = BASE_DIR / 'domain_test.yml'
 
 # def add_bool(self, node):
 #     return self.construct_scalar(node)
@@ -100,6 +100,11 @@ new = 'coisas'
 
 with open(nlu_file, 'r', encoding='utf-8') as nlu:
     data = yaml.safe_load(nlu)
+
+
+d = pagu.paginate_dict(data['responses'], 3, 2)
+
+print(pyaml.dump(d['page_data'], sort_dicts=pyaml.PYAMLSort.none, width=500))
 
 
 # data['intents'][data['intents'].index(current)] = new
