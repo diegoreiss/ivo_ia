@@ -7,7 +7,8 @@ from yaml.constructor import SafeConstructor
 from utils.rasa_training_utils import RasaTrainingUtils
 
 BASE_DIR = Path(__file__).parent
-nlu_file = BASE_DIR / 'data/nlu.yml'
+nlu_file = BASE_DIR / 'data/nlu_test.yml'
+# nlu_file = BASE_DIR / 'domain_test.yml'
 
 # def add_bool(self, node):
 #     return self.construct_scalar(node)
@@ -86,8 +87,43 @@ body = {
     }
 }
 
-rtu = RasaTrainingUtils()
-rtu.get_train_data()
+# rtu = RasaTrainingUtils()
+# rtu.get_train_data()
+
+from utils.pagination_utils import PaginationUtils
+
+
+pagu = PaginationUtils()
+
+current = 'diego'
+new = 'coisas'
+
+with open(nlu_file, 'r', encoding='utf-8') as nlu:
+    data = yaml.safe_load(nlu)
+
+
+# data['intents'][data['intents'].index(current)] = new
+
+# print(data['intents'])
+
+# a, = filter(lambda intent: intent['intent'] == s, data['nlu'])
+# a['intent'] = 'coisas'
+# print(data['nlu'])
+
+# py = pyaml.dump(data, sort_dicts=pyaml.PYAMLSort.none)
+# print(py)
+
+# data_nlu = data['nlu']
+# print(data_nlu, '\n\n')
+
+# f = [intent for intent in data_nlu if intent['intent'] == 'asdfsdf']
+# print(f)
+
+# paginated = pagu.paginate(data_nlu, 10, 2)
+# print(paginated)
+
+# print(pyaml.dump(paginated, sort_dicts=pyaml.PYAMLSort.none))
+# print(data['nlu'])
 
 # with open(nlu_file, 'r', encoding='utf-8') as domain:
 #     data = yaml.safe_load(domain)
