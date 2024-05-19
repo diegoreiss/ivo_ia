@@ -8,14 +8,18 @@ from utils.pagination_utils import PaginationUtils
 
 BASE_DIR = Path(__file__).parent.parent
 DATA_FOLDER = BASE_DIR / 'data'
+IGNORE_FOLDER = BASE_DIR / 'ignore'
 
 FILE_PATHS = {
     'config': BASE_DIR / 'config.yml',
     'domain': BASE_DIR / 'domain_test.yml',
+    'domain_ignore': IGNORE_FOLDER / 'domain_ignore.yml',
     'nlu': BASE_DIR / DATA_FOLDER / 'nlu_test.yml',
+    'nlu_ignore': IGNORE_FOLDER / 'nlu_ignore.yml',
     'rules': BASE_DIR / DATA_FOLDER / 'rules.yml',
     'stories': BASE_DIR / DATA_FOLDER / 'stories.yml'
 }
+
 NLU_FILE = BASE_DIR / DATA_FOLDER / 'nlu.yml'
 RULES_FILE = BASE_DIR / DATA_FOLDER / 'rules.yml'
 STORIES_FILE = BASE_DIR / DATA_FOLDER / 'stories.yml'
@@ -156,6 +160,39 @@ class RasaTrainingUtils:
 
         return data
     
+    def get_all_available_intents_names(self):
+        with open(FILE_PATHS['nlu_ignore'], 'r', encoding=DEFAULT_ENCODING) as nlu_ignore:
+            data = yaml.safe_load(nlu_ignore)
+        
+        intents_for_ignore = tuple(map(lambda i: i['intent'], data['nlu']))
+
+        with open(FILE_PATHS['nlu'], 'r', encoding=DEFAULT_ENCODING) as nlu:
+            data = yaml.safe_load(nlu)
+
+        intents = filter(lambda i: i not in intents_for_ignore, map(lambda i: i['intent'], data['nlu']))
+
+        with open(FILE_PATHS['domain_ignore'], 'r', encoding=DEFAULT_ENCODING) as domain_ignore:
+            data = yaml.safe_load(domain_ignore)
+        
+        responses_for_ignore = data['responses']
+
+        with open(FILE_PATHS['domain'], 'r', encoding=DEFAULT_ENCODING) as domain:
+            data = yaml.safe_load(domain)
+        
+        responses = tuple(response.split('utter_')[1] for response in filter(lambda r: r not in responses_for_ignore, data['responses']))
+
+        available_intents = tuple(filter(lambda i: i not in responses, intents))
+
+        return available_intents
+
+    def get_all_intents_names(self):
+        with open(FILE_PATHS['nlu'], 'r', encoding=DEFAULT_ENCODING) as nlu:
+            data = yaml.safe_load(nlu)
+        
+        intents_names = tuple(map(lambda i: i['intent'], data['nlu']))
+
+        return intents_names
+    
     def get_intent(self, name):
         with open(FILE_PATHS['nlu'], 'r', encoding=DEFAULT_ENCODING) as nlu:
             data = yaml.safe_load(nlu)
@@ -177,6 +214,41 @@ class RasaTrainingUtils:
         
         result = True
 
+        return result
+    
+    def add_response(self, response):
+        result = False
+
+        with open(FILE_PATHS['domain'], 'r', encoding=DEFAULT_ENCODING) as domain:
+            data = yaml.safe_load(domain)
+        
+        if data:
+            data['responses'].update(response)
+
+            with open(FILE_PATHS['domain'], 'w', encoding=DEFAULT_ENCODING) as domain:
+                pyaml.dump(data, domain, sort_dicts=pyaml.PYAMLSort.none, width=500)
+            
+            return not result
+        
+        return result
+    
+    def edit_response_texts(self, response, texts):
+        result = False
+
+        with open(FILE_PATHS['domain'], 'r', encoding=DEFAULT_ENCODING) as domain:
+            data = yaml.safe_load(domain)
+
+        if data:
+            if not data['responses'].get(response):
+                return result
+
+            data['responses'][response] = texts
+
+            with open(FILE_PATHS['domain'], 'w', encoding=DEFAULT_ENCODING) as domain:
+                pyaml.dump(data, domain, sort_dicts=pyaml.PYAMLSort.none, width=500)
+            
+            return not result
+        
         return result
 
     def __add_responses(self, responses):
