@@ -1,0 +1,10 @@
+version: '3.1'
+
+stories:
+  - solicitar_documento
+  - solicitar_documento2
+  - solicitar_documento3
+  - historico_falta_sem_saudacao
+  - historico_falta
+  - solicitar_cronograma
+  - solicitar_cronograma_sem_saudacao

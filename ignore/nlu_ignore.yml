@@ -1,0 +1,9 @@
+version: '3.1'
+
+nlu:
+  - intent: afirmacao
+  - intent: negacao
+  - intent: humor_excelente
+  - intent: humor_infeliz
+  - intent: ping
+  - intent: fornecer_tipo_documento
