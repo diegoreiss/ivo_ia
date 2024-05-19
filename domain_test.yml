@@ -13,16 +13,11 @@ intents:
   - solicitar_documento
   - fornecer_tipo_documento
   - fornecer_historico_escolar
-  - solicitar_informação_pessoal
-  - solicitar_informação_cronograma
+  - solicitar_informacao_pessoal
+  - solicitar_informacao_cronograma
   - solicitar_informacao_horario
   - agradecimento
   - ajuda_com_o_bot
-  - ferias
-  - retorno_aulas
-  - sos_vida
-  - fale_conosco_coordenacao
-  - diego
 
 entities:
   - tipo_documento
@@ -44,7 +39,7 @@ forms:
 
 responses:
   utter_saudacao:
-    - text: |
+    - text: |-
         Oi, eu sou o IVO, um assistente virtual
         Em que posso ajudar?
     - text: Olá!!! mem chamo IVO, sou um assistente virtual feito para te ajudar com algumas informações!
@@ -56,14 +51,14 @@ responses:
     - text: Foi um prazer te ajudar! Sempre que precisar, volte aqui! Até a próxima!
     - text: Foi um prazer te ajudar! Quando surgir alguma dúvida, volte aqui! Até mais!
   utter_ajuda_com_o_bot:
-    - text: |
+    - text: |-
         Sou um chat, para ajudar a tirar suas duvidas dentro da instituição
 
         Segue alguns dos atendimento que temos no momento:
 
-        Documentos: Atestado de frequência, Atestado de matrícula e Histórico escolar
+          - Documentos: atestato de matrícula, atestato de frequência e histórico escolar
 
-        Dúvidas frequentes: Faltas e Horário escolar
+          - Dúvidas frequentes: faltas, horário escolar e cronograma
 
         Além disso, estou aqui para receber outras dúvidas que você possa ter.
         Dependendo da situação, posso alertar a coordenação para pontuar a sua dúvida para eles, sejam elas informações mais específicas e precisas.
@@ -86,13 +81,13 @@ responses:
     - text: Precisa de algo a mais?
     - text: Necessita de mais alguma informação?
     - text: Posso lhe ajudar com algo a mais?
-  utter_solicitar_informação_pessoal:
+  utter_solicitar_informacao_pessoal:
     - text: 'Você possui as seguintes faltas:'
     - text: 'Claro, segue suas faltas:'
   utter_solicitar_informacao_cronograma:
     - text: 'Segue gronograma de aulas:'
     - text: 'Claro, segue seu cronograma:'
-  utter_informacao_horario:
+  utter_solicitar_informacao_horario:
     - text: |
         As aulas no período matutino começam as 07:30 e vão ate 11:30.
         No período vespertino, elas se iniciam 13:00 até 17:00.
@@ -103,16 +98,8 @@ responses:
     - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento, poderia reescrever?
   utter_default:
     - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento, poderia reescrever?
-  utter_ferias:
-    - text: suas férias chegarão em dezembro, mais especificamente no dia 15
-    - text: suas férias começa no dia 15 de dezembro
-  utter_retorno_aulas:
-    - text: O retorno das aulas é no dia 03 de fevereiro
-    - text: Volta as aulas começam dia 03 de fevereiro
-  utter_sos_vida:
-    - text: disque (48) 3033-7227
-  utter_fale_conosco_coordenacao:
-    - text: 'para falar com a coordenacao temos esse numero: (94) 98087-8811'
+  utter_quem_criou_o_bot:
+    - text: criado pelo Lucas Espinosa
 
 actions:
   - action_ask_tipo_documento

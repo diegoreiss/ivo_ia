@@ -213,6 +213,8 @@ nlu:
 
   - intent: solicitar_informacao_horario
     examples: |
+      - horario escolar
+      - horario de aula
       - que horas começa as aulas
       - qual o horario da aula
       - qual horario das aulas do matutino
@@ -224,55 +226,18 @@ nlu:
       - que horas começa a aula da tarde
       - que horas acaba a aula da tarde
 
-  - intent: solicitar_informação_cronograma
+  - intent: solicitar_informacao_cronograma
     examples: |
+      - quais aulas tenho hoje?
       - cronograma
       - quero meu cronograma
       - qual meu cronograma
       - preciso do meu cronograma
 
-  - intent: solicitar_informação_pessoal
+  - intent: solicitar_informacao_pessoal
     examples: |
       - quantas faltas eu tenho
       - quero saber minhas faltas
       - faltas
       - preciso ver minhas faltas
       - quero ver minhas faltas
-
-  - intent: ferias
-    examples: |
-      - queria saber sobre as minhas férias
-      - minhas férias
-      - férias
-      - ferias
-
-  - intent: retorno_aulas
-    examples: |
-      - quero saber quando eu retorno das ferias
-      - quando eu retorno as minhas aulas?
-      - volta as aulas
-      - quando é a volta as aulas?
-      - retorno das férias
-      - retorno das ferias
-      - quero saber quando eu retorno das férias
-      - quando eu retorno das férias?
-      - quando eu retorno das ferias?
-
-  - intent: sos_vida
-    examples: |
-      - quero me matar
-      - quero morrer
-
-  - intent: fale_conosco_coordenacao
-    examples: |
-      - preciso falar com a coordenacao
-      - contatos da coordenacao
-      - quais os contatos da coordenacao?
-
-  - intent: diego
-    examples: |
-      - diego teste
-      - outro diego teste
-      - mais um diego teste
-      - vue
-      - js
