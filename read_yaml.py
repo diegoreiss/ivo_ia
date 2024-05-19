@@ -7,8 +7,8 @@ from yaml.constructor import SafeConstructor
 from utils.rasa_training_utils import RasaTrainingUtils
 
 BASE_DIR = Path(__file__).parent
-# nlu_file = BASE_DIR / 'data/nlu_test.yml'
-nlu_file = BASE_DIR / 'domain_test.yml'
+nlu_file = BASE_DIR / 'data/nlu_test.yml'
+domain_file = BASE_DIR / 'domain_test.yml'
 
 # def add_bool(self, node):
 #     return self.construct_scalar(node)
@@ -94,17 +94,44 @@ from utils.pagination_utils import PaginationUtils
 
 
 pagu = PaginationUtils()
+rtu = RasaTrainingUtils()
 
 current = 'diego'
 new = 'coisas'
 
+with open(BASE_DIR / 'data' / 'nlu_ignore.yml', encoding='utf-8') as ignore:
+    ignore_data = yaml.safe_load(ignore)
+
 with open(nlu_file, 'r', encoding='utf-8') as nlu:
-    data = yaml.safe_load(nlu)
+    nlu_data = yaml.safe_load(nlu)
+
+with open(domain_file, 'r', encoding='utf-8') as domain:
+    domain_file = yaml.safe_load(domain)
+
+with open(BASE_DIR / 'domain_ignore.yml', 'r', encoding='utf-8') as domain_ignore:
+    domain_ignore_data = yaml.safe_load(domain_ignore)
+
+data = [
+    {'text': 'Oi, eu sou o IVO, um assistente virtual\nEm que posso ajudar?\n'},
+    {'text': 'Sou um chat, para ajudar a tirar suas duvidas dentro da instituição\nSegue alguns dos atendimento que temos no momento:\n\nDocumentos: atestato de matrícula, atestato de frequência e histórico escolar\nDúvidas frequentes: faltas, horário escolar e cronograma\nAlém disso, estou aqui para receber outras dúvidas que você possa ter.\nDependendo da situação, posso alertar a coordenação para pontuar a sua dúvida para eles, sejam elas informações mais específicas e precisas.'},
+]
 
 
-d = pagu.paginate_dict(data['responses'], 3, 2)
+print(pyaml.dump(data, sort_dicts=pyaml.PYAMLSort.none, width=1000))
 
-print(pyaml.dump(d['page_data'], sort_dicts=pyaml.PYAMLSort.none, width=500))
+# for i in intents:
+#     if i not in responses_without_utter:
+#         print(i)
+
+
+# print(domain_file['responses'])
+# print(pyaml.dump(domain_file['responses'], sort_dicts=pyaml.PYAMLSort.none, width=500))
+
+
+
+# d = pagu.paginate_dict(data['responses'], 3, 2)
+
+# print(pyaml.dump(d['page_data'], sort_dicts=pyaml.PYAMLSort.none, width=500))
 
 
 # data['intents'][data['intents'].index(current)] = new
