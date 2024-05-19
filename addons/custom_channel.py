@@ -43,6 +43,20 @@ class TrainingModel(InputChannel):
             
             return response.json({'data': intents}, status=200)
         
+        @custom_webhook.route('/intent/names', methods=['GET'])
+        async def get_all_intents_names(request: Request) -> HTTPResponse:
+            rasa_training_utils = RasaTrainingUtils()
+            intents_names = rasa_training_utils.get_all_intents_names()
+
+            return response.json({'data': intents_names}, status=200)
+
+        @custom_webhook.route('/intent/names/available', methods=['GET'])
+        async def get_all_available_intents_names(request: Request) -> HTTPResponse:
+            rasa_training_utils = RasaTrainingUtils()
+            available_intents_names = rasa_training_utils.get_all_available_intents_names()
+
+            return response.json({'data': available_intents_names}, status=200)
+        
         @custom_webhook.route('/intent', methods=['POST'])
         async def create_intent(request: Request) -> HTTPResponse:
             intent = request.json
@@ -90,6 +104,30 @@ class TrainingModel(InputChannel):
             responses = rasa_training_utils.get_all_responses(page)
 
             return response.json({'data': responses}, status=200)
+        
+        @custom_webhook.route('/response', methods=['POST'])
+        async def create_response(request: Request) -> HTTPResponse:
+            data = request.json
+            rasa_training_utils = RasaTrainingUtils()
+
+            result = rasa_training_utils.add_response(data)
+
+            if result:
+                return response.json({}, status=201)
+            
+            return response.json({}, status=400)
+        
+        @custom_webhook.route('/response/<response_name>/change/texts', methods=['PATCH'])
+        async def edit_response_texts(request: Request, response_name: Text) -> HTTPResponse:
+            texts = request.json.get('texts')
+            rasa_training_utils = RasaTrainingUtils()
+
+            result = rasa_training_utils.edit_response_texts(response_name, texts)
+            
+            if result:
+                return response.json({}, status=200)
+
+            return response.json({}, status=400)
         
         @custom_webhook.route('/train', methods=['GET'])
         async def get_training_data(request: Request) -> HTTPResponse:
