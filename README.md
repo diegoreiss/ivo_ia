@@ -18,5 +18,5 @@ Para iniciar o servidor (depende do passo 1) :
     
     // em outro shell:
     
-    rasa run --enable-api --cors "*" --debug
+    rasa run -m models --credentials credentials.yml --enable-api --auth-token thisismysecret --cors "*" --debug
     
