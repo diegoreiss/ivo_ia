@@ -102,7 +102,6 @@ responses:
 actions:
   - action_ask_tipo_documento
   - action_submit_form_tipo_documento
-  - action_dar_oi
   - utter_solicitar_informação_cronograma
   - utter_ajuda_com_o_bot
   - action_fora_de_escopo

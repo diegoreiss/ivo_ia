@@ -12,12 +12,12 @@ IGNORE_FOLDER = BASE_DIR / 'ignore'
 
 FILE_PATHS = {
     'config': BASE_DIR / 'config.yml',
-    'domain': BASE_DIR / 'domain_test.yml',
+    'domain': BASE_DIR / 'domain.yml',
     'domain_ignore': IGNORE_FOLDER / 'domain_ignore.yml',
-    'nlu': BASE_DIR / DATA_FOLDER / 'nlu_test.yml',
+    'nlu': BASE_DIR / DATA_FOLDER / 'nlu.yml',
     'nlu_ignore': IGNORE_FOLDER / 'nlu_ignore.yml',
     'rules': BASE_DIR / DATA_FOLDER / 'rules.yml',
-    'stories': BASE_DIR / DATA_FOLDER / 'stories_test.yml',
+    'stories': BASE_DIR / DATA_FOLDER / 'stories.yml',
     'stories_ignore': IGNORE_FOLDER / 'stories_ignore.yml',
 }
 
