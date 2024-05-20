@@ -17,7 +17,8 @@ FILE_PATHS = {
     'nlu': BASE_DIR / DATA_FOLDER / 'nlu_test.yml',
     'nlu_ignore': IGNORE_FOLDER / 'nlu_ignore.yml',
     'rules': BASE_DIR / DATA_FOLDER / 'rules.yml',
-    'stories': BASE_DIR / DATA_FOLDER / 'stories.yml'
+    'stories': BASE_DIR / DATA_FOLDER / 'stories_test.yml',
+    'stories_ignore': IGNORE_FOLDER / 'stories_ignore.yml',
 }
 
 NLU_FILE = BASE_DIR / DATA_FOLDER / 'nlu.yml'
@@ -288,8 +289,56 @@ class RasaTrainingUtils:
 
         return data
     
+    def get_all_responses_names(self):
+        with open(FILE_PATHS['domain'], 'r', encoding=DEFAULT_ENCODING) as domain:
+            data = yaml.safe_load(domain)
+        
+        return tuple(data['responses'].keys())
+    
     def get_response(self):
         ...
+    
+    def get_all_stories(self):
+        with open(FILE_PATHS['stories_ignore'], 'r', encoding=DEFAULT_ENCODING) as stories_ignore:
+            data = yaml.safe_load(stories_ignore)
+        
+        stories_for_ignore = data['stories']
+        
+        with open(FILE_PATHS['stories'], 'r', encoding=DEFAULT_ENCODING) as stories:
+            data = yaml.safe_load(stories)
+        
+        return tuple(filter(lambda s: s['story'] not in stories_for_ignore , data['stories']))
+    
+    def create_story(self, story):
+        result = False
+
+        with open(FILE_PATHS['stories'], 'r', encoding=DEFAULT_ENCODING) as stories:
+            data = yaml.safe_load(stories)
+        
+        data['stories'].append(story)
+
+        with open(FILE_PATHS['stories'], 'w', encoding=DEFAULT_ENCODING) as stories:
+            pyaml.dump(data, stories, sort_dicts=pyaml.PYAMLSort.none, width=500)
+        
+        return not result
+    
+    def edit_story_steps(self, story, steps):
+        result = False
+
+        with open(FILE_PATHS['stories'], 'r', encoding=DEFAULT_ENCODING) as stories:
+            data = yaml.safe_load(stories)
+        
+        story_filtered = next(filter(lambda s: s['story'] == story, data['stories']), None)
+
+        if not story_filtered:
+            return result
+        
+        story_filtered['steps'] = steps
+
+        with open(FILE_PATHS['stories'], 'w', encoding=DEFAULT_ENCODING) as stories:
+            pyaml.dump(data, stories, sort_dicts=pyaml.PYAMLSort.none, width=500)
+        
+        return not result
     
     def get_train_data(self):
         def extract_data(file_path, keys):

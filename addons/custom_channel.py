@@ -105,6 +105,14 @@ class TrainingModel(InputChannel):
 
             return response.json({'data': responses}, status=200)
         
+        @custom_webhook.route('/response/names', methods=['GET'])
+        async def get_all_responses_names(request: Request) -> HTTPResponse:
+            rasa_training_utils = RasaTrainingUtils()
+
+            responses_names = rasa_training_utils.get_all_responses_names()
+
+            return response.json({'data': responses_names})
+        
         @custom_webhook.route('/response', methods=['POST'])
         async def create_response(request: Request) -> HTTPResponse:
             data = request.json
@@ -137,5 +145,39 @@ class TrainingModel(InputChannel):
             return HTTPResponse(body=training_data_yml, status=200, headers={
                 'Content-Type': 'application/yaml'
             })
+        
+        @custom_webhook.route('/stories', methods=['GET'])
+        async def get_all_stories(request: Request) -> HTTPResponse:
+            rasa_training_utils = RasaTrainingUtils()
+            stories = rasa_training_utils.get_all_stories()
+
+            return response.json({'data': stories}, status=200)
+
+        @custom_webhook.route('/stories', methods=['POST'])
+        async def create_dialogo(request: Request) -> HTTPResponse:
+            data = request.json.get('data')
+            rasa_training_utils = RasaTrainingUtils()
+            result = rasa_training_utils.create_story(data)
+
+            if not result:
+                return response.json({}, status=400)
+            
+            return response.json({}, status=201)
+        
+        @custom_webhook.route('/stories/<story>/change/steps', methods=['PATCH'])
+        async def edit_story_steps(request: Request, story: Text) -> HTTPResponse:
+            steps = request.json.get('steps')
+
+            if not steps:
+                return response.json({}, status=400)
+
+            rasa_training_utils = RasaTrainingUtils()
+
+            result = rasa_training_utils.edit_story_steps(story, steps)
+
+            if result:
+                return response.json({}, status=200)
+            
+            return response.json({}, status=400)
 
         return custom_webhook
