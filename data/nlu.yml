@@ -1,243 +1,251 @@
-version: '3.1'
-
+version: "3.1"
 nlu:
+- intent: saudacao
+  examples: |
+    - oi
+    - olá
+    - tudo bem?
+    - e aí?
+    - vamos lá
+    - blz
+    - opa
+    - beleza
+    - salve
+    - oi, tudo joia?
+    
+- intent: despedida
+  examples: |
+    - tchau
+    - até logo
+    - falô
+    - fui
+    - já vou
+    - até mais
+    - até qualquer dia
+    - tchau, tchau
+    - vejo você depois
+    - até a próxima
+    - se cuida
+    - abraços
+    - Fui
 
-  - intent: saudacao
-    examples: |
-      - oi
-      - olá
-      - tudo bem?
-      - e aí?
-      - vamos lá
-      - blz
-      - opa
-      - beleza
-      - salve
-      - oi, tudo joia?
+- intent: afirmacao
+  examples: |
+    - sim
+    - claro
+    - com certeza
+    - pode crer
+    - tá certo
+    - beleza
+    - ok
+    - legal
+    - irado
+    - topo
+    - vamos lá
+    - manda brasa
+    - pode deixar
+    - blz
 
-  - intent: despedida
-    examples: |
-      - tchau
-      - até logo
-      - falô
-      - fui
-      - já vou
-      - até mais
-      - até qualquer dia
-      - tchau, tchau
-      - vejo você depois
-      - até a próxima
-      - se cuida
-      - abraços
-      - Fui
+- intent: negacao
+  examples: |
+    - não
+    - nem pensar
+    - de jeito nenhum
+    - nem a pau
+    - acho que não
+    - não curto isso
+    - deixa pra lá
+    - dispensa
+    - passo
+    - sem chance
 
-  - intent: afirmacao
-    examples: |
-      - sim
-      - claro
-      - com certeza
-      - pode crer
-      - tá certo
-      - beleza
-      - ok
-      - legal
-      - irado
-      - topo
-      - vamos lá
-      - manda brasa
-      - pode deixar
-      - blz
+- intent: humor_excelente
+  examples: |
+    - perfeito
+    - ótimo
+    - incrível
+    - me sentindo o máximo
+    - maravilhoso
+    - estou me sentindo muito bem
+    - estou ótimo
+    - estou ótima
+    - estou incrível
+    - vou salvar o mundo
+    - super animado
+    - super animada
+    - extremamente bom
+    - tão perfeito
+    - tão perfeita
+    - tão bom
+    - tão boa
+    - impecável
+    - show de bola
+    - massa
+    - demais
 
-  - intent: negacao
-    examples: |
-      - não
-      - nem pensar
-      - de jeito nenhum
-      - nem a pau
-      - acho que não
-      - não curto isso
-      - deixa pra lá
-      - dispensa
-      - passo
-      - sem chance
+- intent: humor_infeliz
+  examples: |
+    - meu dia foi horrível
+    - estou triste
+    - não estou me sentindo muito bem
+    - estou desapontad[oa]
+    - super triste
+    - tô muito triste
+    - chatead[oa]
+    - muito mal
+    - infeliz
+    - não tô legal
+    - não tô nada bem
+    - para baixo
+    - deprimid[oa]
+    - magoad[oa]
+    - arrasad[oa]
 
-  - intent: humor_excelente
-    examples: |
-      - perfeito
-      - ótimo
-      - incrível
-      - me sentindo o máximo
-      - maravilhoso
-      - estou me sentindo muito bem
-      - estou ótimo
-      - estou ótima
-      - estou incrível
-      - vou salvar o mundo
-      - super animado
-      - super animada
-      - extremamente bom
-      - tão perfeito
-      - tão perfeita
-      - tão bom
-      - tão boa
-      - impecável
-      - show de bola
-      - massa
-      - demais
+- intent: ping
+  examples: |
+    - ping
 
-  - intent: humor_infeliz
-    examples: |
-      - meu dia foi horrível
-      - estou triste
-      - não estou me sentindo muito bem
-      - estou desapontad[oa]
-      - super triste
-      - tô muito triste
-      - chatead[oa]
-      - muito mal
-      - infeliz
-      - não tô legal
-      - não tô nada bem
-      - para baixo
-      - deprimid[oa]
-      - magoad[oa]
-      - arrasad[oa]
+- intent: quem_criou_o_bot
+  examples: |
+    - como você foi construido
+    - como voce foi construído
+    - quem te criou
+    - quem te desenvolveu
+    - quem te programou
+    - você tem pai
+    - qual seu pai
+    - onde voce nasceu
+    - quando vc nasceu
+    - quem te fez
+    - quem te produziu
+    - quem é seu pai
+    - fez o ivo
+    - criou o ivo
+    - produziu o ivo
+    - desenvolveu a tais
+    - desenvolveu
+    - criou
+    - produziu
+    - programou
 
-  - intent: ping
-    examples: '- ping'
+- intent: ajuda_com_o_bot
+  examples: |
+    - meajuda
+    - me ajuda
+    - preciso de ajuda
+    - o que vc faz?
+    - oq vc faz?
+    - como você pode me ajudar
+    - como você pode me ajudar?
+    - como voce pode me ajudar?
+    - como vc me ajuda
+    - como vc me ajuda?
+    - como você me ajuda?
+    - como voce me ajuda?
+    - preciso de informações?
+    - quero uma informação
+    - ajuda
+    - informação
+    - informações
+    - o que voce faz?
 
-  - intent: quem_criou_o_bot
-    examples: |
-      - como você foi construido
-      - como voce foi construído
-      - quem te criou
-      - quem te desenvolveu
-      - quem te programou
-      - você tem pai
-      - qual seu pai
-      - onde voce nasceu
-      - quando vc nasceu
-      - quem te fez
-      - quem te produziu
-      - quem é seu pai
-      - fez o ivo
-      - criou o ivo
-      - produziu o ivo
-      - desenvolveu a tais
-      - desenvolveu
-      - criou
-      - produziu
-      - programou
+- intent: agradecimento
+  examples: |
+    - perfeito muito agradecido
+    - obrigado tirou minhas duvidas
+    - obrigada por me ajudar
+    - obrigado por me ajudar
+    - obrigada, tais
+    - obrigado, tais
+    - agradecido
+    - agradecida
+    - obrigada
+    - obrigado
+    - grato
+    - grata
+    - thanks
+    - thank you
+    - merci
+    - gracias
 
-  - intent: ajuda_com_o_bot
-    examples: |
-      - meajuda
-      - me ajuda
-      - preciso de ajuda
-      - o que vc faz?
-      - oq vc faz?
-      - como você pode me ajudar
-      - como você pode me ajudar?
-      - como voce pode me ajudar?
-      - como você pode me ajudar?
-      - como vc me ajuda
-      - como vc me ajuda?
-      - como você me ajuda?
-      - como voce me ajuda?
-      - preciso de informações?
-      - quero uma informação
-      - ajuda
-      - informação
-      - informações
+- intent: fornecer_tipo_documento
+  examples: |
+    - documento
+    - preciso de um documento
+    - necessito de um documento
+    - quero um documento
+    - solicitar documento
+    - atestado de matricula
+    - atestado de frequencia
+    - preciso de um documento do tipo [atestado de matricula](tipo_documento)
+    - preciso de um documento do tipo [atestado de frequencia](tipo_documento)
+    - preciso de um [atestado de matricula](tipo_documento)
+    - preciso de um [atestado de frequencia](tipo_documento)
+    - um [atestado de frequencia](tipo_documento)
+    - um [atestado de matricula](tipo_documento)
+    - [atestado de frequencia](tipo_documento)
+    - [atestado de matricula](tipo_documento)
+    - preciso [de](tipo_documento) um [atestado de frequencia](tipo_documento)
+    - quais documentos voce tem?
 
-  - intent: agradecimento
-    examples: |
-      - perfeito muito agradecido
-      - obrigado tirou minhas duvidas
-      - obrigada por me ajudar
-      - obrigado por me ajudar
-      - obrigada, tais
-      - obrigado, tais
-      - agradecido
-      - agradecida
-      - obrigada
-      - obrigado
-      - grato
-      - grata
-      - thanks
-      - thank you
-      - merci
-      - gracias
+- intent: fornecer_historico_escolar
+  examples: |
+    - [historico escolar](tipo_documento)
+    - um [historico escolar](tipo_documento)
+    - preciso de um documento do tipo [historico escolar](tipo_documento)
+    - preciso de um [historico escolar](tipo_documento)
+    - agora preciso de um [historico escolar](tipo_documento)
+    - [historico escolar](tipo_documento)
 
-  - intent: fornecer_tipo_documento
-    examples: |
-      - documento
-      - preciso de um documento
-      - necessito de um documento
-      - quero um documento
-      - solicitar documento
-      - atestado de matricula
-      - atestado de frequencia
-      - preciso de um documento do tipo [atestado de matricula](tipo_documento)
-      - preciso de um documento do tipo [atestado de frequencia](tipo_documento)
-      - preciso de um [atestado de matricula](tipo_documento)
-      - preciso de um [atestado de frequencia](tipo_documento)
-      - um [atestado de frequencia](tipo_documento)
-      - um [atestado de matricula](tipo_documento)
-      - [atestado de frequencia](tipo_documento)
-      - [atestado de matricula](tipo_documento)
+- intent: fora_de_escopo
+  examples: |
+    - você fala sobre o meio ambiente
+    - qual a origem do mundo
+    - vc gosta de carnaval
+    - batatinha quando nasce
+    - imbecil
+    - imbécil
+    - nojento
+    - chato
+    - babaca
+    - feio
+    - burro
+    - quero fazer miojo
 
-  - intent: fornecer_historico_escolar
-    examples: |
-      - [historico escolar](tipo_documento)
-      - [historico escolar](tipo_documento)
-      - um [historico escolar](tipo_documento)
-      - preciso de um documento do tipo [historico escolar](tipo_documento)
-      - preciso de um [historico escolar](tipo_documento)
-      - [historico escolar](tipo_documento)
+- intent: solicitar_informacao_horario
+  examples: |
+    - horario escolar
+    - horario de aula
+    - que horas começa as aulas
+    - qual o horario da aula
+    - qual horario das aulas do matutino
+    - qual horario das aulas do vespertino
+    - qual horario das aulas da manha
+    - qual horario das aulas da tarde
+    - que horas começa a aula da manha
+    - que horas acaba a aula da manha
+    - que horas começa a aula da tarde
+    - que horas acaba a aula da tarde
 
-  - intent: fora_de_escopo
-    examples: |
-      - você fala sobre o meio ambiente
-      - qual a origem do mundo
-      - vc gosta de carnaval
-      - batatinha quando nasce
-      - imbecil
-      - imbécil
-      - nojento
-      - chato
-      - babaca
-      - feio
-      - burro
-      - quero fazer miojo
+- intent: solicitar_informacao_cronograma
+  examples: |
+    - quais aulas tenho hoje?
+    - cronograma
+    - quero meu cronograma
+    - qual meu cronograma
+    - preciso do meu cronograma
+    - quero saber meu cronograma de aula
+    - quero saber minhas aulas
 
-  - intent: solicitar_informacao_horario
-    examples: |
-      - horario escolar
-      - horario de aula
-      - que horas começa as aulas
-      - qual o horario da aula
-      - qual horario das aulas do matutino
-      - qual horario das aulas do vespertino
-      - qual horario das aulas da manha
-      - qual horario das aulas da tarde
-      - que horas começa a aula da manha
-      - que horas acaba a aula da manha
-      - que horas começa a aula da tarde
-      - que horas acaba a aula da tarde
+- intent: solicitar_informacao_pessoal
+  examples: |
+    - quantas faltas eu tenho
+    - quero saber minhas faltas
+    - faltas
+    - preciso ver minhas faltas
+    - quero ver minhas faltas
+    - sim, quero saber quantas faltas eu tenho em matemática
 
-  - intent: solicitar_informacao_cronograma
-    examples: |
-      - quais aulas tenho hoje?
-      - cronograma
-      - quero meu cronograma
-      - qual meu cronograma
-      - preciso do meu cronograma
-
-  - intent: solicitar_informacao_pessoal
-    examples: |
-      - quantas faltas eu tenho
-      - quero saber minhas faltas
-      - faltas
-      - preciso ver minhas faltas
-      - quero ver minhas faltas
+- intent: nlu_fallback
+  examples: |
+    - o que é um sobretudo?

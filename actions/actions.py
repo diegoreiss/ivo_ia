@@ -39,16 +39,8 @@ class SubmitFormTipoDocumento(Action):
         
         return [SlotSet('tipo_documento', None)]
     
-    # def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
-    #     dispatcher.utter_message(text=f'form enviado {tracker.get_slot("tipo_documento")}')
-
-    #     return []
-
 
 class ActionDefaultFallback(Action):
-    """Executes the fallback action and goes back to the previous state
-    of the dialogue"""
-
     def name(self) -> Text:
         return 'action_default_fallback_name'
 
@@ -60,5 +52,4 @@ class ActionDefaultFallback(Action):
     ) -> List[Dict[Text, Any]]:
         dispatcher.utter_message(template="my_custom_fallback_template")
 
-        # Revert user message which led to fallback.
         return ['UserUtteranceReverted()']
