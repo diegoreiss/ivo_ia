@@ -12,7 +12,6 @@ nlu:
     - beleza
     - salve
     - oi, tudo joia?
-    
 - intent: despedida
   examples: |
     - tchau
@@ -28,7 +27,6 @@ nlu:
     - se cuida
     - abraços
     - Fui
-
 - intent: afirmacao
   examples: |
     - sim
@@ -45,7 +43,6 @@ nlu:
     - manda brasa
     - pode deixar
     - blz
-
 - intent: negacao
   examples: |
     - não
@@ -58,7 +55,6 @@ nlu:
     - dispensa
     - passo
     - sem chance
-
 - intent: humor_excelente
   examples: |
     - perfeito
@@ -82,7 +78,6 @@ nlu:
     - show de bola
     - massa
     - demais
-
 - intent: humor_infeliz
   examples: |
     - meu dia foi horrível
@@ -100,11 +95,9 @@ nlu:
     - deprimid[oa]
     - magoad[oa]
     - arrasad[oa]
-
 - intent: ping
   examples: |
     - ping
-
 - intent: quem_criou_o_bot
   examples: |
     - como você foi construido
@@ -127,7 +120,6 @@ nlu:
     - criou
     - produziu
     - programou
-
 - intent: ajuda_com_o_bot
   examples: |
     - meajuda
@@ -148,7 +140,7 @@ nlu:
     - informação
     - informações
     - o que voce faz?
-
+    - o que voce pode me ajudar?
 - intent: agradecimento
   examples: |
     - perfeito muito agradecido
@@ -167,7 +159,6 @@ nlu:
     - thank you
     - merci
     - gracias
-
 - intent: fornecer_tipo_documento
   examples: |
     - documento
@@ -187,7 +178,6 @@ nlu:
     - [atestado de matricula](tipo_documento)
     - preciso [de](tipo_documento) um [atestado de frequencia](tipo_documento)
     - quais documentos voce tem?
-
 - intent: fornecer_historico_escolar
   examples: |
     - [historico escolar](tipo_documento)
@@ -196,7 +186,6 @@ nlu:
     - preciso de um [historico escolar](tipo_documento)
     - agora preciso de um [historico escolar](tipo_documento)
     - [historico escolar](tipo_documento)
-
 - intent: fora_de_escopo
   examples: |
     - você fala sobre o meio ambiente
@@ -211,7 +200,6 @@ nlu:
     - feio
     - burro
     - quero fazer miojo
-
 - intent: solicitar_informacao_horario
   examples: |
     - horario escolar
@@ -226,7 +214,7 @@ nlu:
     - que horas acaba a aula da manha
     - que horas começa a aula da tarde
     - que horas acaba a aula da tarde
-
+    - que horas começa as aulas?
 - intent: solicitar_informacao_cronograma
   examples: |
     - quais aulas tenho hoje?
@@ -236,7 +224,7 @@ nlu:
     - preciso do meu cronograma
     - quero saber meu cronograma de aula
     - quero saber minhas aulas
-
+    - quais aulas tenho essa semana?
 - intent: solicitar_informacao_pessoal
   examples: |
     - quantas faltas eu tenho
@@ -245,7 +233,21 @@ nlu:
     - preciso ver minhas faltas
     - quero ver minhas faltas
     - sim, quero saber quantas faltas eu tenho em matemática
-
+    - agora quero saber minhas faltas em geografia
+- intent: solicitar_informacao_boletim
+  examples: |
+    - quero saber minhas notas
+    - quero meu boletim
+    - notas
+    - boletim
+    - preciso do meu boletim
+    - estou passado?
+    - estou reprovado?
+    - estou de recuperação?
+    - quero ver meu boletim
+    - quero ver minhas notas
 - intent: nlu_fallback
   examples: |
     - o que é um sobretudo?
+    - como se faz macarrão?
+    - quantas patas tem um cachorro?

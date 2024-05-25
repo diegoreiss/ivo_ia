@@ -15,6 +15,7 @@ intents:
 - quem_criou_o_bot
 - saudacao
 - solicitar_documento
+- solicitar_informacao_boletim
 - solicitar_informacao_cronograma
 - solicitar_informacao_horario
 - solicitar_informacao_pessoal
@@ -94,12 +95,18 @@ responses:
   - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento, poderia reescrever?
   utter_default:
   - text: Desculpe, mas esse assunto não consta nas minhas diretrizes de conhecimento, poderia reescrever?
+  utter_solicitar_informacao_boletim:
+  - text: 'Segue seu boletim: '
+  - text: 'Segue boletim solicitado: '
 actions:
-- utter_please_rephrase
-- action_submit_form_tipo_documento
-- utter_atendimento_final
-- utter_fornecer_historico_escolar
 - utter_solicitar_informacao_cronograma
+- utter_solicitar_informacao_boletim
+- utter_agradecimento
+- utter_atendimento_final
+- utter_solicitar_informacao_horario
+- action_submit_form_tipo_documento
+- utter_please_rephrase
+- utter_fornecer_historico_escolar
 - utter_solicitar_informacao_pessoal
 - utter_ajuda_com_o_bot
 - action_ask_tipo_documento

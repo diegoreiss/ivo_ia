@@ -101,7 +101,7 @@ stories:
     - action: utter_solicitar_informacao_pessoal
     - action: utter_atendimento_final
 
-  - story: interactive_story_1
+  - story: interactive_story_2
     steps:
     - intent: solicitar_informacao_pessoal
     - intent: solicitar_informacao_cronograma
@@ -127,7 +127,7 @@ stories:
     - action: utter_fornecer_historico_escolar
     - action: utter_atendimento_final
 
-  - story: interactive_story_1
+  - story: interactive_story_3
     steps:
     - intent: fornecer_tipo_documento
     - action: tipo_documento_form
@@ -148,3 +148,73 @@ stories:
       - tipo_documento: null
     - intent: nlu_fallback
     - action: utter_please_rephrase
+
+  - story: interactive_story_4
+    steps:
+    - intent: ajuda_com_o_bot
+    - action: utter_ajuda_com_o_bot
+    - intent: ajuda_com_o_bot
+    - intent: nlu_fallback
+    - action: utter_please_rephrase
+    - intent: solicitar_informacao_boletim
+
+  - story: interactive_story_5
+    steps:
+    - intent: solicitar_informacao_boletim
+    - action: utter_solicitar_informacao_boletim
+    - intent: fornecer_tipo_documento
+    - action: tipo_documento_form
+    - active_loop: tipo_documento_form
+    - slot_was_set:
+      - requested_slot: tipo_documento
+    - intent: fornecer_tipo_documento
+      entities:
+      - tipo_documento: atestado de matricula
+    - slot_was_set:
+      - tipo_documento: atestado de matricula
+    - action: tipo_documento_form
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_submit_form_tipo_documento
+    - slot_was_set:
+      - tipo_documento: null
+    - intent: agradecimento
+    - intent: solicitar_informacao_pessoal
+    - action: utter_solicitar_informacao_pessoal
+    - intent: fornecer_historico_escolar
+      entities:
+      - tipo_documento: historico escolar
+    - action: utter_fornecer_historico_escolar
+
+  - story: interactive_story_6
+    steps:
+    - intent: solicitar_informacao_cronograma
+    - action: utter_solicitar_informacao_cronograma
+    - action: utter_atendimento_final
+    - intent: fornecer_tipo_documento
+    - action: tipo_documento_form
+    - active_loop: tipo_documento_form
+    - slot_was_set:
+      - requested_slot: tipo_documento
+    - intent: fornecer_historico_escolar
+      entities:
+      - tipo_documento: historico escolar
+    - slot_was_set:
+      - tipo_documento: historico escolar
+    - action: tipo_documento_form
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_submit_form_tipo_documento
+    - slot_was_set:
+      - tipo_documento: null
+    - intent: nlu_fallback
+    - action: utter_please_rephrase
+    - intent: solicitar_informacao_boletim
+    - action: utter_solicitar_informacao_boletim
+    - intent: agradecimento
+    - action: utter_agradecimento
+    - intent: solicitar_informacao_horario
+    - action: utter_solicitar_informacao_horario
+    - action: utter_atendimento_final
