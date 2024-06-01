@@ -1,8 +1,17 @@
-from typing import Text, Any, Callable, Awaitable
+import os
+import json
 import inspect
+from typing import Text, Any, Callable, Awaitable
+
+import redis
 from sanic import Sanic, Blueprint, response
 from sanic.request import Request
 from sanic.response import HTTPResponse
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
 
 from rasa.core.channels.channel import (
     InputChannel,
@@ -10,6 +19,31 @@ from rasa.core.channels.channel import (
 )
 
 from utils.rasa_training_utils import RasaTrainingUtils
+
+
+class BotMetrics(InputChannel):
+    def name(self) -> Text:
+        """Name of your custom channel."""
+        return 'bot_metrics'
+    
+    def blueprint(self, on_new_message: Callable[[UserMessage], Awaitable[Any]]) -> Blueprint:
+        custom_webhook = Blueprint(f'custom_webhook_{type(self).__name__}', inspect.getmodule(self).__name__)
+
+        @custom_webhook.route('/', methods=['GET'])
+        async def get_metrics(request: Request) -> HTTPResponse:
+            with redis.Redis(
+                host=os.environ['REDIS_HOST'], 
+                port=os.environ['REDIS_PORT'], 
+                db=int(os.environ['REDIS_DB']), 
+                decode_responses=True) as conn:
+
+                trackers = conn.keys('tracker:*')
+                events = [json.loads(conn.get(event)) for event in trackers] if len(trackers) > 0 else []
+
+                return response.json(events, status=200)
+
+        return custom_webhook
+
 
 
 class TrainingModel(InputChannel):

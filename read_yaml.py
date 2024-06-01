@@ -91,16 +91,27 @@ body = {
 # rtu = RasaTrainingUtils()
 # rtu.get_train_data()
 
-from utils.pagination_utils import PaginationUtils
+# from utils.pagination_utils import PaginationUtils
 
 
-pagu = PaginationUtils()
-rtu = RasaTrainingUtils()
+# pagu = PaginationUtils()
+# rtu = RasaTrainingUtils()
 
-current = 'diego'
-new = 'coisas'
+# current = 'diego'
+# new = 'coisas'
 
-with open(stories_file, 'r', encoding='utf-8') as stories:
-    data = yaml.safe_load(stories)
+# with open(stories_file, 'r', encoding='utf-8') as stories:
+#     data = yaml.safe_load(stories)
 
-print(data)
+# print(data)
+import json
+
+import redis
+
+
+with redis.Redis(host='localhost', port=6379, db=0, decode_responses=True) as conn:
+    aux = conn.keys('tracker:*')
+
+    events = [json.loads(conn.get(i)) for i in aux]
+    print(events)
+
