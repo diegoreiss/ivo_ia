@@ -115,6 +115,7 @@ actions:
 - utter_informacao_horario
 - utter_default
 - action_default_fallback_name
+- action_enviar_cronograma
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

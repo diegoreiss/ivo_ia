@@ -5,16 +5,43 @@
 # https://rasa.com/docs/rasa/custom-actions
 
 from typing import Any, Coroutine, Dict, List, Text
+
+import requests
 from rasa_sdk import Action
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.interfaces import Tracker
 from rasa_sdk.types import DomainDict
 from rasa_sdk.events import SlotSet
 
+from services.gateway_service import GatewayService
+
 
 ALLOWED_TIPO_DOCUMENTO = (
     'atestado de frequencia', 'atestado de matricula', 'historico escolar',
 )
+
+
+class CronogramaAction(Action):
+    def name(self) -> Text:
+        return 'action_enviar_cronograma'
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        user_uuid = tracker.sender_id.split('_')[1]
+
+        gateway_service = GatewayService()
+        res = gateway_service.get_turma_by_user(user_uuid)
+
+        turma = res.json()
+        print(turma)
+
+        dispatcher.utter_message(response='utter_solicitar_informacao_cronograma', attachment={
+            'type': 'file',
+            'payload': {
+                'title': turma['turma']['calendario'].split('/')[-1],
+                'src': turma['turma']['calendario']
+            }
+        })
+
 
 class AskForTipoDocumenoAction(Action):
     def name(self) -> Text:
