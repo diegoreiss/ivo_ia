@@ -7,7 +7,7 @@
 from typing import Any, Coroutine, Dict, List, Text
 
 import requests
-from rasa_sdk import Action
+from rasa_sdk import Action, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.interfaces import Tracker
 from rasa_sdk.types import DomainDict
@@ -80,3 +80,36 @@ class ActionDefaultFallback(Action):
         dispatcher.utter_message(template="my_custom_fallback_template")
 
         return ['UserUtteranceReverted()']
+
+
+class ValidatePendenciaForm(FormValidationAction):
+    def name(self) -> Text:
+        return 'validate_pendencia_form'
+    
+    def validate_pendencia_aluno(self, slot_value: Text, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Dict[Text, Any]:
+        """Validate slot pendencia_aluno"""
+
+        pendencia_text = slot_value.strip()
+
+        if len(pendencia_text) <= 0:
+            return {'pendencia_aluno': None}
+
+        return {'pendencia_aluno': pendencia_text}
+
+
+class SubmitFormPendencia(Action):
+    def name(self) -> Text:
+        return 'action_submit_form_pendencia'
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
+        uuid = tracker.sender_id.split('_')[1]
+        body = {
+            'descricao': tracker.get_slot('pendencia_aluno')
+        }
+
+        print(f'user_uuid {uuid}')
+        print(f'pendencia: {body}')
+        
+        dispatcher.utter_message(text='enviando form pendencia')
+
+        return [SlotSet('pendencia_aluno', None)]

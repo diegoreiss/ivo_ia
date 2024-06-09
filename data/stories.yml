@@ -109,7 +109,6 @@ stories:
     - action: utter_atendimento_final
     - intent: fornecer_tipo_documento
       entities:
-      - tipo_documento: de
       - tipo_documento: atestado de frequencia
     - action: tipo_documento_form
     - active_loop: tipo_documento_form
@@ -218,3 +217,14 @@ stories:
     - intent: solicitar_informacao_horario
     - action: utter_solicitar_informacao_horario
     - action: utter_atendimento_final
+  
+  - story: aluno_solicitando_algo_especifico
+    steps:
+    - intent: solicitar_algo_especifico
+    - action: utter_ask_solicitar_algo_especifico
+    - action: pendencia_form
+    - active_loop: pendencia_form
+    - slot_was_set:
+      - requested_slot: pendencia_aluno
+    - active_loop: null
+    - action: action_submit_form_pendencia

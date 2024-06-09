@@ -19,6 +19,7 @@ intents:
 - solicitar_informacao_cronograma
 - solicitar_informacao_horario
 - solicitar_informacao_pessoal
+- solicitar_algo_especifico
 entities:
 - tipo_documento
 slots:
@@ -30,10 +31,21 @@ slots:
       entity: tipo_documento
       conditions:
       - active_loop: tipo_documento_form
+  pendencia_aluno:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: pendencia_form
+        requested_slot: pendencia_aluno
 forms:
   tipo_documento_form:
     required_slots:
     - tipo_documento
+  pendencia_form:
+    required_slots:
+    - pendencia_aluno
 responses:
   utter_saudacao:
   - text: |-
@@ -98,6 +110,11 @@ responses:
   utter_solicitar_informacao_boletim:
   - text: 'Segue seu boletim: '
   - text: 'Segue boletim solicitado: '
+  utter_ask_solicitar_algo_especifico:
+  - text: |
+      Certo, irei passar para um coordenador a solicitação específica que deseja!
+
+      O que deseja de específico?
 actions:
 - utter_solicitar_informacao_cronograma
 - utter_solicitar_informacao_boletim
@@ -116,6 +133,8 @@ actions:
 - utter_default
 - action_default_fallback_name
 - action_enviar_cronograma
+- action_submit_form_pendencia
+- validate_pendencia_form
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

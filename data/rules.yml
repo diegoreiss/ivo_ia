@@ -17,7 +17,7 @@ rules:
       - slot_was_set:
         - requested_slot: null
       - action: action_submit_form_tipo_documento
-
+  
   - rule: despedida_quando_o_usuario_se_despedir
     steps:
       - intent: despedida

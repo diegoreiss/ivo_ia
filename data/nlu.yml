@@ -251,3 +251,12 @@ nlu:
     - o que é um sobretudo?
     - como se faz macarrão?
     - quantas patas tem um cachorro?
+- intent: solicitar_algo_especifico
+  examples: |
+    - preciso de algo mais especifico
+    - preciso de uma informação mais específica
+    - preciso de uma informacao mais específica
+    - preciso de uma informação mais específica
+    - preciso de uma informacao mais especifica
+    - quero algo mais específico
+    - quero algo mais especifico
