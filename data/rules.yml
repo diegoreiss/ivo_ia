@@ -18,6 +18,11 @@ rules:
         - requested_slot: null
       - action: action_submit_form_tipo_documento
   
+  - rule: responder_quando_o_usuario_agradecer
+    steps:
+      - intent: agradecimento
+      - action: utter_agradecimento
+
   - rule: despedida_quando_o_usuario_se_despedir
     steps:
       - intent: despedida

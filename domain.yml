@@ -110,6 +110,9 @@ responses:
   utter_solicitar_informacao_boletim:
   - text: 'Segue seu boletim: '
   - text: 'Segue boletim solicitado: '
+  utter_solicitar_documento_atestado_de_frequencia:
+  - text: 'Segue o seu atestado de frequência'
+  - text: 'Ótimo, aqui está o seu atestado de frequência'
   utter_ask_solicitar_algo_especifico:
   - text: |
       Certo, irei passar para um coordenador a solicitação específica que deseja!

@@ -29,16 +29,16 @@ class CronogramaAction(Action):
         user_uuid = tracker.sender_id.split('_')[1]
 
         gateway_service = GatewayService()
-        res = gateway_service.get_turma_by_user(user_uuid)
+        res = gateway_service.get_aluno_document_url(user_uuid, 'cronograma')
 
-        turma = res.json()
-        print(turma)
+        file = res.json()
 
         dispatcher.utter_message(response='utter_solicitar_informacao_cronograma', attachment={
             'type': 'file',
             'payload': {
-                'title': turma['turma']['calendario'].split('/')[-1],
-                'src': turma['turma']['calendario']
+                'src': file['url'],
+                'title': file['title'],
+                'content-type': file['content-type']
             }
         })
 
@@ -58,11 +58,32 @@ class SubmitFormTipoDocumento(Action):
         return 'action_submit_form_tipo_documento'
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
-        tipo_documento = tracker.get_slot("tipo_documento")
-        if tipo_documento == 'historico escolar':
-            dispatcher.utter_message(response='utter_fornecer_historico_escolar')
-        else:
-            dispatcher.utter_message(text=f'form enviado {tipo_documento}')
+        user_uuid = tracker.sender_id.split('_')[1]
+        tipo_documento = tracker.get_slot('tipo_documento')
+        tipo_documento_for_query = str(tipo_documento).replace(' ', '_')
+
+        gateway_service = GatewayService()
+        res = gateway_service.get_aluno_document_url(user_uuid, tipo_documento_for_query)
+        json = None
+
+        match res.status_code:
+            case 500 | 400 | 401 | 403:
+                dispatcher.utter_message('Infelizmente não consegui gerar o seu documento :(. Tente novamente')
+            case 200:
+                json = res.json()
+            case _:
+                dispatcher.utter_message('Infelizmente houve um erro, tente novamente. :(')
+
+        attatchment = {
+            'type': 'file',
+            'payload': {
+                'src': json['url'],
+                'title': json['title'],
+                'content-type': json['content-type']
+            }
+        }
+
+        dispatcher.utter_message(text=f'Segue o seu {tipo_documento}:', attachment=attatchment)
         
         return [SlotSet('tipo_documento', None)]
     
@@ -102,14 +123,22 @@ class SubmitFormPendencia(Action):
         return 'action_submit_form_pendencia'
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: DomainDict) -> Coroutine[Any, Any, List[Dict[Text, Any]]]:
-        uuid = tracker.sender_id.split('_')[1]
         body = {
-            'descricao': tracker.get_slot('pendencia_aluno')
+            'descricao': tracker.get_slot('pendencia_aluno'),
+            'custom_user': tracker.sender_id.split('_')[1]
         }
 
-        print(f'user_uuid {uuid}')
-        print(f'pendencia: {body}')
-        
-        dispatcher.utter_message(text='enviando form pendencia')
+        gateway_service = GatewayService()
+        res = gateway_service.criar_pendencia(body)
+
+        match res.status_code:
+            case 500 | 400 | 401 | 403:
+                dispatcher.utter_message('Infelizmente não consegui gerar a sua pendência. :( Tente novamente')
+            case 201:
+                dispatcher.utter_message(text='Pendência criada com sucesso!')
+                dispatcher.utter_message(text='Você pode ver as suas pendências na seção de pendências')
+                dispatcher.utter_message(text='Com elas, o coordenador da sua instituição pode visualizar e lhe auxiliar melhor!')
+            case _:
+                dispatcher.utter_message('Infelizmente houve um erro, tente novamente. :(')
 
         return [SlotSet('pendencia_aluno', None)]
