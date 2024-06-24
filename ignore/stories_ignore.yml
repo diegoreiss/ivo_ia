@@ -8,3 +8,4 @@ stories:
   - historico_falta
   - solicitar_cronograma
   - solicitar_cronograma_sem_saudacao
+  - aluno_solicitando_algo_especifico

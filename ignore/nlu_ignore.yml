@@ -7,3 +7,5 @@ nlu:
   - intent: humor_infeliz
   - intent: ping
   - intent: fornecer_tipo_documento
+  - intent: nlu_fallback
+  - intent: solicitar_algo_especifico
